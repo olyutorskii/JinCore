@@ -1,0 +1,50 @@
+/*
+ * family of system-event-message
+ *
+ * Copyright(c) 2009 olyutorskii
+ * $Id: EventFamily.java 889 2009-11-04 06:44:30Z olyutorskii $
+ */
+
+package jp.sourceforge.jindolf.corelib;
+
+/**
+ * システムイベントメッセージのおおまかな種別。
+ */
+public enum EventFamily{
+
+    /** &lt;div class="announce"&gt;メッセージに対応。 */
+    ANNOUNCE("announce"),
+    /** &lt;div class="order"&gt;メッセージに対応。 */
+    ORDER("order"),
+    /** &lt;div class="extra"&gt;メッセージに対応。 */
+    EXTRA("extra"),
+    ;
+
+    private final String divClass;
+
+    /**
+     * コンストラクタ。
+     * @param divClass divタグclass名
+     */
+    private EventFamily(String divClass){
+        this.divClass = divClass;
+        return;
+    }
+
+    /**
+     * 由来となった&lt;div&gt;要素のclass属性値を得る。
+     * @return class属性値
+     */
+    public String getDivClass(){
+        return this.divClass;
+    }
+
+    /**
+     * XML用シンボルを取得する。
+     * @return XML用シンボル
+     */
+    public String getXmlName(){
+        return this.divClass;
+    }
+
+}

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    人狼BBS 国設定 一覧。
+    Copyright(c) 2009 olyutorskii
+    License : The MIT License
+    $Id: landDefList.xml 1004 2010-03-15 14:02:55Z olyutorskii $
+-->
+
+<landDefList
+    xmlns="http://jindolf.sourceforge.jp/xml/ns/401"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jindolf.sourceforge.jp/xml/ns/401
+                        http://jindolf.sourceforge.jp/xml/xsd/coreXML-090829.xsd"
+    xml:lang="ja-JP"
+    update="2010-03-15T22:00:00+09:00"
+>
+
+<!--
+2009年8月末に行われた、過去ログ提供サーバの集約に対処。
+  http://d.hatena.ne.jp/ninjin/20090830
+
+国IDを新サーバURLに合わせるため、
+古国の国ID、「wolf0」は「wolf」に、
+本国の国ID、「wolf1」は「wolf0」に変更。
+-->
+
+    <landDef
+        landName="人狼BBS:古国"
+        landId="wolf"
+        formalName="旧人狼BBS 2"
+        landPrefix=""
+        landState="historical"
+        minMembers="8"
+        maxMembers="16"
+        webURI="http://ninjinix.x0.com/wolf/"
+        cgiURI="http://ninjinix.x0.com/wolf/index.rb"
+        tombFaceIconURI="./plugin_wolf/img/face99.jpg"
+        tombBodyIconURI="./plugin_wolf/img/body99.jpg"
+        faceIconURITemplate="./plugin_wolf/img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="./plugin_wolf/img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2004-08-15T23:31:36+09:00"
+        endDate="2004-09-30T13:58:31+09:00"
+        description="人狼BBS 古国（旧人狼BBS 2　過去ログのみ"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+    />
+
+    <landDef
+        landName="人狼BBS:本国"
+        landId="wolf0"
+        formalName="人狼BBS"
+        landPrefix=""
+        landState="historical"
+        minMembers="8"
+        maxMembers="16"
+        webURI="http://ninjinix.x0.com/wolf0/"
+        cgiURI="http://ninjinix.x0.com/wolf0/index.rb"
+        tombFaceIconURI="../img/face99.jpg"
+        tombBodyIconURI="../img/body99.jpg"
+        faceIconURITemplate="../img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="../img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2004-10-03T18:59:46+09:00"
+        endDate="2005-02-25T18:59:28+09:00"
+        description="人狼BBS 本国（人狼BBS　過去ログのみ"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+    />
+
+    <landDef
+        landName="人狼BBS:A国"
+        landId="wolfa"
+        formalName="人狼BBS:A"
+        landPrefix="A"
+        landState="historical"
+        minMembers="8"
+        maxMembers="16"
+        webURI="http://ninjinix.x0.com/wolfa/"
+        cgiURI="http://ninjinix.x0.com/wolfa/index.rb"
+        tombFaceIconURI="../img/face99.jpg"
+        tombBodyIconURI="../img/body99.jpg"
+        faceIconURITemplate="../img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="../img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2004-10-11T16:07:11+09:00"
+        endDate="2004-12-31T18:29:58+09:00"
+        description="人狼BBS A国　過去ログのみ　A340村以降、システム障害が多発"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        invalidVid="340-342,346-365,367-386"
+    /><!-- A339,A345はエピローグのみ一部消失 -->
+
+    <landDef
+        landName="人狼BBS:B国"
+        landId="wolfb"
+        formalName="人狼BBS:B"
+        landPrefix="B"
+        landState="historical"
+        minMembers="8"
+        maxMembers="16"
+        webURI="http://ninjinix.x0.com/wolfb/"
+        cgiURI="http://ninjinix.x0.com/wolfb/index.rb"
+        tombFaceIconURI="../img/face99.jpg"
+        tombBodyIconURI="../img/body99.jpg"
+        faceIconURITemplate="../img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="../img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2004-12-24T02:07:06+09:00"
+        endDate="2005-02-03T02:29:56+09:00"
+        description="人狼BBS B国　過去ログのみ　B149村は欠番"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        invalidVid="149"
+    />
+
+    <landDef
+        landName="人狼BBS:C国"
+        landId="wolfc"
+        formalName="人狼BBS:C"
+        landPrefix="C"
+        landState="historical"
+        minMembers="11"
+        maxMembers="16"
+        webURI="http://ninjinix.x0.com/wolfc/"
+        cgiURI="http://ninjinix.x0.com/wolfc/index.rb"
+        tombFaceIconURI="./plugin_wolf/img/face99.jpg"
+        tombBodyIconURI="./plugin_wolf/img/body99.jpg"
+        faceIconURITemplate="./plugin_wolf/img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="./plugin_wolf/img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2005-01-21T01:47:32+09:00"
+        endDate="2007-10-01T13:29:56+09:00"
+        description="人狼BBS C国　過去ログのみ （人狼と狂人で囁きあい可能）"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        invalidVid="451"
+    />
+
+    <landDef
+        landName="人狼BBS:D国"
+        landId="wolfd"
+        formalName="人狼BBS:D"
+        landPrefix="D"
+        landState="historical"
+        minMembers="11"
+        maxMembers="16"
+        webURI="http://ninjinix.x0.com/wolfd/"
+        cgiURI="http://ninjinix.x0.com/wolfd/index.rb"
+        tombFaceIconURI="../img/face99.jpg"
+        tombBodyIconURI="../img/body99.jpg"
+        faceIconURITemplate="../img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="../img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2005-02-17T23:59:28+09:00"
+        endDate="2005-09-11T11:30:53+09:00"
+        description="人狼BBS D国　過去ログのみ"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+    />
+
+    <landDef
+        landName="人狼BBS:E国"
+        landId="wolfe"
+        formalName="人狼BBS:E"
+        landPrefix="E"
+        landState="historical"
+        minMembers="11"
+        maxMembers="17"
+        webURI="http://ninjinix.x0.com/wolfe/"
+        cgiURI="http://ninjinix.x0.com/wolfe/index.rb"
+        tombFaceIconURI="./plugin_wolf/img/face99.jpg"
+        tombBodyIconURI="./plugin_wolf/img/body99.jpg"
+        faceIconURITemplate="./plugin_wolf/img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="./plugin_wolf/img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2005-08-19T14:13:53+09:00"
+        endDate="2006-01-07T15:59:58+09:00"
+        description="人狼BBS E国　過去ログのみ （ハムスター有り）"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+    />
+
+    <landDef
+        landName="人狼BBS:F国"
+        landId="wolff"
+        formalName="人狼BBS:F"
+        landPrefix="F"
+        landState="historical"
+        minMembers="11"
+        maxMembers="16"
+        webURI="http://ninjin002.x0.com/wolff/"
+        cgiURI="http://ninjin002.x0.com/wolff/index.rb"
+        tombFaceIconURI="./plugin_wolf/img/face99.jpg"
+        tombBodyIconURI="./plugin_wolf/img/body99.jpg"
+        faceIconURITemplate="./plugin_wolf/img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="./plugin_wolf/img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="Shift_JIS"
+        timeZone="GMT+09:00"
+        startDate="2005-09-12T20:21:03+09:00"
+        endDate="2010-03-15T20:15:01+09:00"
+        description="人狼BBS F国　F1945,F1973村は欠番"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+    />
+
+    <landDef
+        landName="人狼BBS:G国"
+        landId="wolfg"
+        formalName="人狼BBS:G"
+        landPrefix="G"
+        landState="active"
+        minMembers="10"
+        maxMembers="14"
+        webURI="http://www.wolfg.x0.com/"
+        cgiURI="http://www.wolfg.x0.com/index.rb"
+        tombFaceIconURI="./plugin_wolf/img/face99.jpg"
+        tombBodyIconURI="./plugin_wolf/img/body99.jpg"
+        faceIconURITemplate="./plugin_wolf/img/face{0,number,#00}.jpg"
+        bodyIconURITemplate="./plugin_wolf/img/body{0,number,#00}.jpg"
+        locale="ja-JP"
+        encoding="UTF-8"
+        timeZone="GMT+09:00"
+        startDate="2010-03-07T13:53:27+09:00"
+        description="人狼BBS G国"
+        contactInfo="http://homepage2.nifty.com/ninjinia/"
+    />
+
+</landDefList>
+
+<!-- EOF -->

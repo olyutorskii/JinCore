@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    人狼BBS プリセット済みAvatar(キャラクタ)設定
+    C国、F国対応
+    Copyright(c) 2009 olyutorskii
+    License : The MIT License
+    $Id: preDefAvatarList.xml 788 2009-08-29 10:15:34Z olyutorskii $
+-->
+
+<preDefinedAvatarList
+    xmlns="http://jindolf.sourceforge.jp/xml/ns/401"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jindolf.sourceforge.jp/xml/ns/401
+                        http://jindolf.sourceforge.jp/xml/xsd/coreXML-090829.xsd"
+    xml:lang="ja-JP"
+    update="2009-08-29T19:00:00+09:00"
+>
+    <preDefinedAvatar
+        avatarId="gerd"
+        jobTitle="楽天家"
+        shortName="ゲルト"
+        serialNum="1"
+    />
+
+    <preDefinedAvatar
+        avatarId="walter"
+        jobTitle="村長"
+        shortName="ヴァルター"
+        serialNum="2"
+    />
+
+    <preDefinedAvatar
+        avatarId="moritz"
+        jobTitle="老人"
+        shortName="モーリッツ"
+        serialNum="3"
+    />
+
+    <preDefinedAvatar
+        avatarId="simson"
+        jobTitle="神父"
+        shortName="ジムゾン"
+        serialNum="4"
+    />
+
+    <preDefinedAvatar
+        avatarId="thomas"
+        jobTitle="木こり"
+        shortName="トーマス"
+        serialNum="5"
+    />
+
+    <preDefinedAvatar
+        avatarId="nicolas"
+        jobTitle="旅人"
+        shortName="ニコラス"
+        serialNum="6"
+    />
+
+    <preDefinedAvatar
+        avatarId="dieter"
+        jobTitle="ならず者"
+        shortName="ディーター"
+        serialNum="7"
+    />
+
+    <preDefinedAvatar
+        avatarId="peter"
+        jobTitle="少年"
+        shortName="ペーター"
+        serialNum="8"
+    />
+
+    <preDefinedAvatar
+        avatarId="liesa"
+        jobTitle="少女"
+        shortName="リーザ"
+        serialNum="9"
+    />
+
+    <preDefinedAvatar
+        avatarId="albin"
+        jobTitle="行商人"
+        shortName="アルビン"
+        serialNum="10"
+    />
+
+    <preDefinedAvatar
+        avatarId="katharina"
+        jobTitle="羊飼い"
+        shortName="カタリナ"
+        serialNum="11"
+    />
+
+    <preDefinedAvatar
+        avatarId="otto"
+        jobTitle="パン屋"
+        shortName="オットー"
+        serialNum="12"
+    />
+
+    <preDefinedAvatar
+        avatarId="joachim"
+        jobTitle="青年"
+        shortName="ヨアヒム"
+        serialNum="13"
+    />
+
+    <preDefinedAvatar
+        avatarId="pamela"
+        jobTitle="村娘"
+        shortName="パメラ"
+        serialNum="14"
+    />
+
+    <preDefinedAvatar
+        avatarId="jacob"
+        jobTitle="農夫"
+        shortName="ヤコブ"
+        serialNum="15"
+    />
+
+    <preDefinedAvatar
+        avatarId="regina"
+        jobTitle="宿屋の女主人"
+        shortName="レジーナ"
+        serialNum="16"
+    />
+
+    <preDefinedAvatar
+        avatarId="fridel"
+        jobTitle="シスター"
+        shortName="フリーデル"
+        serialNum="17"
+    />
+
+    <preDefinedAvatar
+        avatarId="erna"
+        jobTitle="仕立て屋"
+        shortName="エルナ"
+        serialNum="18"
+    />
+
+    <preDefinedAvatar
+        avatarId="clara"
+        jobTitle="司書"
+        shortName="クララ"
+        serialNum="19"
+    />
+
+    <preDefinedAvatar
+        avatarId="simon"
+        jobTitle="負傷兵"
+        shortName="シモン"
+        serialNum="20"
+    />
+
+
+</preDefinedAvatarList>
+
+<!-- EOF -->

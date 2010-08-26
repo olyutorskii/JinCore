@@ -165,8 +165,7 @@ public enum GameRole{
             case WOLF:     power = +20; break;
             default:
                 assert false;
-                power = Integer.MAX_VALUE;
-                break;
+                throw new AssertionError();
             }
 
             return power;

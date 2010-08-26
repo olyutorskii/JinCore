@@ -3,9 +3,9 @@
 <!--
     人狼BBS プリセット済みAvatar(キャラクタ)設定
     C国、F国対応
-    Copyright(c) 2009 olyutorskii
+
     License : The MIT License
-    $Id: preDefAvatarList.xml 788 2009-08-29 10:15:34Z olyutorskii $
+    Copyright(c) 2009 olyutorskii
 -->
 
 <preDefinedAvatarList
@@ -14,7 +14,7 @@
     xsi:schemaLocation="http://jindolf.sourceforge.jp/xml/ns/401
                         http://jindolf.sourceforge.jp/xml/xsd/coreXML-090829.xsd"
     xml:lang="ja-JP"
-    update="2009-08-29T19:00:00+09:00"
+    update="2010-08-26T20:00:00+09:00"
 >
     <preDefinedAvatar
         avatarId="gerd"

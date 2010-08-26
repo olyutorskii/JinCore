@@ -2,9 +2,9 @@
 
 <!--
     人狼BBS 国設定 一覧。
-    Copyright(c) 2009 olyutorskii
+
     License : The MIT License
-    $Id: landDefList.xml 1004 2010-03-15 14:02:55Z olyutorskii $
+    Copyright(c) 2009 olyutorskii
 -->
 
 <landDefList
@@ -13,7 +13,7 @@
     xsi:schemaLocation="http://jindolf.sourceforge.jp/xml/ns/401
                         http://jindolf.sourceforge.jp/xml/xsd/coreXML-090829.xsd"
     xml:lang="ja-JP"
-    update="2010-03-15T22:00:00+09:00"
+    update="2010-08-26T20:00:00+09:00"
 >
 
 <!--
@@ -219,7 +219,7 @@
         landPrefix="G"
         landState="active"
         minMembers="10"
-        maxMembers="14"
+        maxMembers="16"
         webURI="http://www.wolfg.x0.com/"
         cgiURI="http://www.wolfg.x0.com/index.rb"
         tombFaceIconURI="./plugin_wolf/img/face99.jpg"

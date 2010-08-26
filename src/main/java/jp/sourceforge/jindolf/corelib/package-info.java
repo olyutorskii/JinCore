@@ -53,8 +53,10 @@
  *
  * @see <a href="http://jindolf.sourceforge.jp/">
  * Jindolfポータルサイト</a>
- * @see <a href="http://sourceforge.jp/projects/jindolf/">
+ * @see <a href="http://sourceforge.jp/projects/jindolf/devel/">
  * Jindolf開発プロジェクト</a>
  */
 
 package jp.sourceforge.jindolf.corelib;
+
+/* EOF */

@@ -117,6 +117,14 @@ public class LandDefTest {
         cal.set(1991, 2-1, 3, 4, 5, 6);
         assertEquals(cal.getTimeInMillis(), result);
 
+        seq = "!!!";
+        try{
+            result = LandDef.parseISO8601(seq);
+            fail();
+        }catch(IllegalArgumentException e){
+            // GOOD
+        }
+
         return;
     }
 
@@ -235,6 +243,20 @@ public class LandDefTest {
         }
 
         seq = "1,x,3";
+        try{
+            coll = LandDef.parseIntList(seq);
+            fail();
+        }catch(IllegalArgumentException e){
+        }
+
+        seq = "-";
+        try{
+            coll = LandDef.parseIntList(seq);
+            fail();
+        }catch(IllegalArgumentException e){
+        }
+
+        seq = "1-2-3";
         try{
             coll = LandDef.parseIntList(seq);
             fail();

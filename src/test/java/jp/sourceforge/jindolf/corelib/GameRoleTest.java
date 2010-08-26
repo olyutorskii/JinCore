@@ -137,6 +137,10 @@ public class GameRoleTest {
         assertTrue(cmp.compare(GameRole.WOLF, GameRole.INNOCENT) > 0);
         assertTrue(cmp.compare(GameRole.FRATER, GameRole.INNOCENT) > 0);
 
+        assertTrue(cmp.compare(null, null) == 0);
+        assertTrue(cmp.compare(GameRole.INNOCENT, null) > 0);
+        assertTrue(cmp.compare(null, GameRole.INNOCENT) < 0);
+
         return;
     }
 

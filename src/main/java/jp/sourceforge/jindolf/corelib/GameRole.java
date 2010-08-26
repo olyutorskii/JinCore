@@ -1,8 +1,8 @@
 /*
  * Roles in game
  *
+ * License : The MIT License
  * Copyright(c) 2009 olyutorskii
- * $Id: GameRole.java 889 2009-11-04 06:44:30Z olyutorskii $
  */
 
 package jp.sourceforge.jindolf.corelib;

@@ -1,8 +1,8 @@
 /*
  * type of system-event-message
  *
+ * License : The MIT License
  * Copyright(c) 2009 olyutorskii
- * $Id: SysEventType.java 1010 2010-03-16 10:16:48Z olyutorskii $
  */
 
 package jp.sourceforge.jindolf.corelib;

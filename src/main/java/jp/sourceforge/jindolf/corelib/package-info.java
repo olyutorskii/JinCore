@@ -6,8 +6,8 @@
  * このファイルはソースコードを含まず、
  * パッケージコメントとパッケージ宣言のみが含まれます。
  *
+ * License : The MIT License
  * Copyright(c) 2008 olyutorskii
- * $Id: package-info.java 889 2009-11-04 06:44:30Z olyutorskii $
  */
 
 /**

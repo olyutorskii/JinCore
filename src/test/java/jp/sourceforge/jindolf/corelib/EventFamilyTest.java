@@ -1,6 +1,6 @@
 /*
+ * License : The MIT License
  * Copyright(c) 2009 olyutorskii
- * $Id: EventFamilyTest.java 865 2009-10-21 11:43:41Z olyutorskii $
  */
 
 package jp.sourceforge.jindolf.corelib;

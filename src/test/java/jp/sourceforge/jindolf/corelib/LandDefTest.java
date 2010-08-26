@@ -1,6 +1,6 @@
 /*
+ * License : The MIT License
  * Copyright(c) 2009 olyutorskii
- * $Id: LandDefTest.java 1004 2010-03-15 14:02:55Z olyutorskii $
  */
 
 package jp.sourceforge.jindolf.corelib;

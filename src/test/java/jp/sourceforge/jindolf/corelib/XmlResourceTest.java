@@ -1,6 +1,6 @@
 /*
+ * License : The MIT License
  * Copyright(c) 2009 olyutorskii
- * $Id: XmlResourceTest.java 791 2009-08-29 10:47:24Z olyutorskii $
  */
 
 package jp.sourceforge.jindolf.corelib;

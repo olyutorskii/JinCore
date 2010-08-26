@@ -1,6 +1,6 @@
 /*
+ * License : The MIT License
  * Copyright(c) 2009 olyutorskii
- * $Id: DestinyTest.java 683 2009-08-19 05:10:06Z olyutorskii $
  */
 
 package jp.sourceforge.jindolf.corelib;

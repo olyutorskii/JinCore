@@ -16,12 +16,14 @@
     <groupId>jp.sourceforge.jindolf</groupId>
     <artifactId>jincore</artifactId>
 
-    <version>1.203.3-SNAPSHOT</version>
+    <version>1.203.4</version>
 
     <packaging>jar</packaging>
     <name>JinCore</name>
 
     <description><!--
+-->JinCoreライブラリは、Jindolf プロジェクトのコア共通部分を構成する<!--
+-->Javaパッケージです。<!--
  --></description>
 
     <url>http://sourceforge.jp/projects/jindolf/devel/</url>
@@ -61,9 +63,18 @@
     </prerequisites>
 
     <modules/>
-    <scm/>
 
-    <issueManagement/>
+    <scm>
+        <connection>scm:hg:http://hg.sourceforge.jp/view/jindolf/JinCore</connection>
+        <developerConnection>scm:hg:ssh://hg.sourceforge.jp//hgroot/jindolf/JinCore</developerConnection>
+        <url>http://hg.sourceforge.jp/view/jindolf/JinCore/</url>
+    </scm>
+
+    <issueManagement>
+        <system>SourceForge.JP</system>
+        <url>http://sourceforge.jp/projects/jindolf/ticket/</url>
+    </issueManagement>
+
     <ciManagement/>
     <distributionManagement/>
 

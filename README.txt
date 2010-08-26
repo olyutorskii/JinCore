@@ -39,16 +39,13 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 
   このアーカイブは、UTF-8による開発環境を前提として構成されています。
   このアーカイブの原本となる開発資産は、
-      http://svn.sourceforge.jp/svnroot/jindolf/JinCore/
-  を上位に持つSubversionリポジトリで管理されています。
-  アーカイブの代わりにSubversionを通じて開発資産にアクセスすることにより、
-  任意の文字コードに変換されたJavaソースファイルや各種リソースを
-  容易に入手することが可能です。
+      http://hg.sourceforge.jp/view/jindolf/JinCore
+  を上位に持つMercurialリポジトリで管理されています。
 
 
 === 開発プロジェクト運営元 ===
 
-  http://sourceforge.jp/projects/jindolf/ まで。
+  http://sourceforge.jp/projects/jindolf/devel/ まで。
 
 
 === ディレクトリ内訳構成 ===

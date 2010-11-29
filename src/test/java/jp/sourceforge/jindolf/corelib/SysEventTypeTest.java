@@ -42,7 +42,7 @@ public class SysEventTypeTest {
     public void testValues(){
         System.out.println("values");
         SysEventType[] values = SysEventType.values();
-        assertEquals(27, values.length);
+        assertEquals(28, values.length);
         return;
     }
 
@@ -83,6 +83,7 @@ public class SysEventTypeTest {
             case PANIC:
             case EXECUTION:
             case VANISH:
+            case SHORTMEMBER:
                 assertEquals(EventFamily.ANNOUNCE, type.getEventFamily());
                 break;
             case ASKENTRY:

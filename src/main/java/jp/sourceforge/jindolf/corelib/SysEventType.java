@@ -64,6 +64,8 @@ public enum SysEventType{
     COUNTING2,
     /** 失踪。 */
     VANISH,
+    /** チェックアウト。 */
+    CHECKOUT,
     /** 定員不足。 */
     SHORTMEMBER,
     /** 未定義。 */
@@ -94,6 +96,7 @@ public enum SysEventType{
         case PANIC:
         case EXECUTION:
         case VANISH:
+        case CHECKOUT:
         case SHORTMEMBER:
             return EventFamily.ANNOUNCE;
         case ASKENTRY:

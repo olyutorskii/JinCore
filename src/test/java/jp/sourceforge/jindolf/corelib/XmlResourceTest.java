@@ -51,12 +51,41 @@ public class XmlResourceTest {
         assertEquals(XmlResource.I_URI_CORETYPE, map.get(XmlResource.O_URI_CORETYPE));
         assertEquals(XmlResource.I_URI_COREXML, map.get(XmlResource.O_URI_COREXML));
 
+        return;
+    }
+
+    /**
+     * Test of resource.
+     */
+    @Test
+    public void testResource(){
+        System.out.println("resource");
+        Map<URI, URI> map = XmlResource.RESOLVE_MAP;
+
         for(Map.Entry<URI,URI> entry : map.entrySet()){
-            URI out = entry.getKey();
             URI in = entry.getValue();
             try{
-                out.toURL().openStream();
                 in.toURL().openStream();
+            }catch(IOException e){
+                fail();
+            }
+        }
+
+        return;
+    }
+
+    /**
+     * Test of net resource.
+     */
+//  @Test
+    public void nettestNetResource(){
+        System.out.println("netresource");
+        Map<URI, URI> map = XmlResource.RESOLVE_MAP;
+
+        for(Map.Entry<URI,URI> entry : map.entrySet()){
+            URI out = entry.getKey();
+            try{
+                out.toURL().openStream();
             }catch(IOException e){
                 fail();
             }

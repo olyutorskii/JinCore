@@ -109,7 +109,7 @@ public final class PreDefAvatar{
 
         Element root = document.getDocumentElement();
         String tagName = root.getTagName();
-        if( ! tagName.equals("preDefinedAvatarList") ){
+        if( ! "preDefinedAvatarList".equals(tagName) ){
             throw new SAXException("illegal root " + tagName);
         }
 

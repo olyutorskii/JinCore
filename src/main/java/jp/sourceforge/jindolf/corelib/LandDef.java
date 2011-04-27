@@ -8,15 +8,11 @@
 package jp.sourceforge.jindolf.corelib;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -25,14 +21,8 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TimeZone;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.xml.parsers.DocumentBuilder;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
@@ -59,7 +49,13 @@ public final class LandDef{
 
     private static final Map<String, LandState> STATE_MAP;
 
-    private static final Pattern ISO8601_PATTERN;
+
+    static{
+        STATE_MAP = new HashMap<String, LandState>();
+        STATE_MAP.put("closed",     LandState.CLOSED);
+        STATE_MAP.put("historical", LandState.HISTORICAL);
+        STATE_MAP.put("active",     LandState.ACTIVE);
+    }
 
 
     private String landName;
@@ -85,35 +81,6 @@ public final class LandDef{
     private int[] invalidVid;
 
 
-    static{
-        STATE_MAP = new HashMap<String, LandState>();
-        STATE_MAP.put("closed",     LandState.CLOSED);
-        STATE_MAP.put("historical", LandState.HISTORICAL);
-        STATE_MAP.put("active",     LandState.ACTIVE);
-
-        String year = "([0-9][0-9][0-9][0-9])";
-        String month = "([0-1][0-9])";
-        String day = "([0-3][0-9])";
-        String hour = "([0-2][0-9])";
-        String minute = "([0-5][0-9])";
-        String second = "([0-6][0-9])";
-        String timezone =
-                "("+
-                    "[\\+\\-][0-2][0-9]"+
-                    "(?:"+ ":?[0-5][0-9]" +")?"+
-                "|"+
-                    "Z"+
-                ")";
-        String iso8601Regex =
-                year +"\\-"+ month +"\\-"+ day
-                +"T"+
-                hour +":"+ minute +":"+ second
-                +timezone;
-
-        ISO8601_PATTERN = Pattern.compile(iso8601Regex);
-    }
-
-
     /**
      * コンストラクタ。
      */
@@ -122,51 +89,6 @@ public final class LandDef{
         return;
     }
 
-
-    /**
-     * ISO8601形式の日付をエポック秒msに変換する。
-     * JRE1.6 の javax.xml.bind.DatatypeConverter 代替品
-     * @param date ISO8601形式の日付文字列
-     * @return エポック秒ms
-     * @throws IllegalArgumentException 形式が変な場合。
-     */
-    public static long parseISO8601(CharSequence date)
-            throws IllegalArgumentException {
-        Matcher matcher = ISO8601_PATTERN.matcher(date);
-        if( ! matcher.matches() ){
-            throw new IllegalArgumentException(date.toString());
-        }
-
-        int gid = 1;
-        String yearStr   = matcher.group(gid++);
-        String monthStr  = matcher.group(gid++);
-        String dayStr    = matcher.group(gid++);
-        String hourStr   = matcher.group(gid++);
-        String minuteStr = matcher.group(gid++);
-        String secondStr = matcher.group(gid++);
-        String tzString  = matcher.group(gid++);
-
-        int year   = Integer.parseInt(yearStr);
-        int month  = Integer.parseInt(monthStr);
-        int day    = Integer.parseInt(dayStr);
-        int hour   = Integer.parseInt(hourStr);
-        int minute = Integer.parseInt(minuteStr);
-        int second = Integer.parseInt(secondStr);
-
-        String tzID = "GMT";
-        if( tzString.compareToIgnoreCase("Z") == 0 ) tzID += "+00:00";
-        else                                         tzID += tzString;
-        TimeZone timezone = TimeZone.getTimeZone(tzID);
-
-        Calendar calendar = new GregorianCalendar();
-        calendar.clear();
-        calendar.setTimeZone(timezone);
-        calendar.set(year, month - 1, day, hour, minute, second);
-
-        long result = calendar.getTimeInMillis();
-
-        return result;
-    }
 
     /**
      * ハイフンで区切られた整数範囲をパースする。
@@ -248,83 +170,18 @@ public final class LandDef{
     public static List<LandDef> buildLandDefList(DocumentBuilder builder)
             throws IOException,
                    SAXException{
-        Element landDefList = loadLandDefList(builder);
-        List<LandDef> result;
-        result = elemToLandDefList(landDefList);
-        result = Collections.unmodifiableList(result);
-        return result;
-    }
+        List<Element> elemList = DomUtils.loadElemList(
+                builder, XmlResource.I_URL_LANDDEF, "landDef");
 
-    /**
-     * 国設定に関する定義をXMLリソースからロードする。
-     * @see XmlResource#I_URL_LANDDEF ロード対象となるXMLリソースのURL
-     * @param builder DOMビルダ
-     * @return 国定義情報のルート要素
-     * @throws IOException IOエラー
-     * @throws SAXException パースエラー
-     */
-    private static Element loadLandDefList(DocumentBuilder builder)
-            throws IOException,
-                   SAXException {
-        InputStream istream = XmlResource.I_URL_LANDDEF.openStream();
-        Document document;
-        try{
-            document = builder.parse(istream);
-        }finally{
-            istream.close();
-        }
+        List<LandDef> result = new ArrayList<LandDef>(elemList.size());
 
-        Element root = document.getDocumentElement();
-        String tagName = root.getTagName();
-        if( ! tagName.equals("landDefList") ){
-            throw new SAXException("illegal root " + tagName);
-        }
-
-        return root;
-    }
-
-    /**
-     * XMLルート要素内部を探索し、国設定を構築する。
-     * @param list ルート要素
-     * @return 国設定が格納されたList
-     * @throws SAXException パースエラー
-     */
-    private static List<LandDef> elemToLandDefList(Element list)
-            throws SAXException {
-        NodeList elems = list.getElementsByTagName("landDef");
-        int landNum = elems.getLength();
-        if(landNum <= 0){
-            throw new SAXException("there is no <landDef>");
-        }
-        List<LandDef> landDefList = new ArrayList<LandDef>(landNum);
-
-        for(int index = 0; index < landNum; index++){
-            Node node = elems.item(index);
-            Element elem = (Element) node;
+        for(Element elem : elemList){
             LandDef landDef = buildLandDef(elem);
-            landDefList.add(landDef);
+            result.add(landDef);
         }
 
-        return landDefList;
-    }
+        result = Collections.unmodifiableList(result);
 
-    /**
-     * XMLタグの必須属性値を得る。
-     * @param elem XML要素
-     * @param attrName 属性名
-     * @return 属性値
-     * @throws SAXException 必須属性が無かった。
-     */
-    private static String attrRequired(Element elem, String attrName)
-            throws SAXException{
-        Attr attr = elem.getAttributeNode(attrName);
-        if(attr == null){
-            throw new SAXException("no attribute[" + attrName + "]");
-        }
-        String result = attr.getValue();
-        if(result == null){
-            throw new SAXException("no attribute[" + attrName + "]");
-        }
         return result;
     }
 
@@ -356,10 +213,10 @@ public final class LandDef{
      */
     private static void fillIdInfo(LandDef result, Element elem)
             throws SAXException{
-        String landName   = attrRequired(elem, "landName");
-        String landId     = attrRequired(elem, "landId");
-        String formalName = attrRequired(elem, "formalName");
-        String landPrefix = attrRequired(elem, "landPrefix");
+        String landName   = DomUtils.attrRequired(elem, "landName");
+        String landId     = DomUtils.attrRequired(elem, "landId");
+        String formalName = DomUtils.attrRequired(elem, "formalName");
+        String landPrefix = DomUtils.attrRequired(elem, "landPrefix");
 
         if(   landName  .length() <= 0
            || landId    .length() <= 0
@@ -383,8 +240,8 @@ public final class LandDef{
      */
     private static void fillMemberInfo(LandDef result, Element elem)
             throws SAXException{
-        String minStr = attrRequired(elem, "minMembers");
-        String maxStr = attrRequired(elem, "maxMembers");
+        String minStr = DomUtils.attrRequired(elem, "minMembers");
+        String maxStr = DomUtils.attrRequired(elem, "maxMembers");
 
         int minMembers = Integer.parseInt(minStr);
         int maxMembers = Integer.parseInt(maxStr);
@@ -401,31 +258,6 @@ public final class LandDef{
     }
 
     /**
-     * XML属性値からURIを展開する。
-     * @param elem XML国定義要素
-     * @param attrName 属性名
-     * @return URI
-     * @throws SAXException 属性が未定義もしくはURI形式を満たさない。
-     */
-    private static URI attrToUri(Element elem, String attrName)
-            throws SAXException{
-        Attr attr = elem.getAttributeNode(attrName);
-        if(attr == null) return null;
-
-        String uriText = attr.getValue();
-        if(uriText == null) return null;
-
-        URI uri;
-        try{
-            uri = new URI(uriText).normalize();
-        }catch(URISyntaxException e){
-            throw new SAXException("illegal URI " + uriText, e);
-        }
-
-        return uri;
-    }
-
-    /**
      * XML属性を使って国定義のURI情報を埋める。
      * @param result 国定義
      * @param elem 個別のXML国定義要素
@@ -433,8 +265,8 @@ public final class LandDef{
      */
     private static void fillUriInfo(LandDef result, Element elem)
             throws SAXException{
-        URI webURI = attrToUri(elem, "webURI");
-        URI cgiURI = attrToUri(elem, "cgiURI");
+        URI webURI = DomUtils.attrToUri(elem, "webURI");
+        URI cgiURI = DomUtils.attrToUri(elem, "cgiURI");
         if(webURI == null || cgiURI == null){
             throw new SAXException("no URI");
         }
@@ -443,8 +275,8 @@ public final class LandDef{
             throw new SAXException("relative URI");
         }
 
-        URI tombFaceIconURI = attrToUri(elem, "tombFaceIconURI");
-        URI tombBodyIconURI = attrToUri(elem, "tombBodyIconURI");
+        URI tombFaceIconURI = DomUtils.attrToUri(elem, "tombFaceIconURI");
+        URI tombBodyIconURI = DomUtils.attrToUri(elem, "tombBodyIconURI");
         if(tombFaceIconURI == null) tombFaceIconURI = DEF_TOMBFACE_URI;
         if(tombBodyIconURI == null) tombBodyIconURI = DEF_TOMBBODY_URI;
 
@@ -464,19 +296,11 @@ public final class LandDef{
      */
     private static void fillTemplateInfo(LandDef result, Element elem)
             throws SAXException{
-        String faceURITemplate = null;
-        String bodyURITemplate = null;
+        String faceURITemplate;
+        String bodyURITemplate;
 
-        Attr faceAttr = elem.getAttributeNode("faceIconURITemplate");
-        Attr bodyAttr = elem.getAttributeNode("bodyIconURITemplate");
-
-        if(faceAttr != null){
-            faceURITemplate = faceAttr.getValue();
-        }
-
-        if(bodyAttr != null){
-            bodyURITemplate = bodyAttr.getValue();
-        }
+        faceURITemplate = DomUtils.attrValue(elem, "faceIconURITemplate");
+        bodyURITemplate = DomUtils.attrValue(elem, "bodyIconURITemplate");
 
         if(faceURITemplate == null) faceURITemplate = DEF_FACE_URI_TMPL;
         if(bodyURITemplate == null) bodyURITemplate = DEF_BODY_URI_TMPL;
@@ -495,9 +319,9 @@ public final class LandDef{
      */
     private static void fillI18NInfo(LandDef result, Element elem)
             throws SAXException{
-        String localeText   = attrRequired(elem, "locale");
-        String encodingText = attrRequired(elem, "encoding");
-        String timeZoneText = attrRequired(elem, "timeZone");
+        String localeText   = DomUtils.attrRequired(elem, "locale");
+        String encodingText = DomUtils.attrRequired(elem, "encoding");
+        String timeZoneText = DomUtils.attrRequired(elem, "timeZone");
 
         Locale locale = buildLocale(localeText);
         Charset encoding = Charset.forName(encodingText);
@@ -521,13 +345,13 @@ public final class LandDef{
         long startDateTime;
         long endDateTime;
 
-        String startDateText = attrRequired(elem, "startDate");
+        String startDateText = DomUtils.attrRequired(elem, "startDate");
         String endDateText = elem.getAttribute("endDate");
 
-        startDateTime = parseISO8601(startDateText);
+        startDateTime = DateUtils.parseISO8601(startDateText);
 
         if(endDateText.length() > 0){
-            endDateTime = parseISO8601(endDateText);
+            endDateTime = DateUtils.parseISO8601(endDateText);
         }else{
             endDateTime = -1;
         }
@@ -554,14 +378,14 @@ public final class LandDef{
      */
     private static void fillLandInfo(LandDef result, Element elem)
             throws SAXException{
-        String state = attrRequired(elem, "landState");
+        String state = DomUtils.attrRequired(elem, "landState");
         LandState landState = STATE_MAP.get(state);
         if(landState == null){
             throw new SAXException("illegal land status " + state);
         }
 
-        String description = attrRequired(elem, "description");
-        String contactInfo = attrRequired(elem, "contactInfo");
+        String description = DomUtils.attrRequired(elem, "description");
+        String contactInfo = DomUtils.attrRequired(elem, "contactInfo");
 
         String invalidVid = elem.getAttribute("invalidVid");
         SortedSet<Integer> invalidSet = parseIntList(invalidVid);

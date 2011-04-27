@@ -279,6 +279,7 @@ public class LandDefTest {
 
         assertEquals("人狼BBS:古国", selectLand("wolf").getLandName());
         assertEquals("人狼BBS:F国", selectLand("wolff").getLandName());
+        assertEquals("人狼BBS:G国", selectLand("wolfg").getLandName());
 
         return;
     }
@@ -293,6 +294,7 @@ public class LandDefTest {
         assertEquals("wolf", selectLand("wolf").getLandId());
         assertEquals("wolf0", selectLand("wolf0").getLandId());
         assertEquals("wolff", selectLand("wolff").getLandId());
+        assertEquals("wolfg", selectLand("wolfg").getLandId());
 
         return;
     }
@@ -306,6 +308,7 @@ public class LandDefTest {
 
         assertEquals("旧人狼BBS 2", selectLand("wolf").getFormalName());
         assertEquals("人狼BBS:F", selectLand("wolff").getFormalName());
+        assertEquals("人狼BBS:G", selectLand("wolfg").getFormalName());
 
         return;
     }
@@ -320,6 +323,7 @@ public class LandDefTest {
         assertEquals("", selectLand("wolf").getLandPrefix());
         assertEquals("", selectLand("wolf0").getLandPrefix());
         assertEquals("F", selectLand("wolff").getLandPrefix());
+        assertEquals("G", selectLand("wolfg").getLandPrefix());
 
         return;
     }
@@ -333,7 +337,7 @@ public class LandDefTest {
 
         assertEquals(LandState.HISTORICAL, selectLand("wolf0").getLandState());
         assertEquals(LandState.HISTORICAL, selectLand("wolff").getLandState());
-        assertEquals(LandState.ACTIVE, selectLand("wolfg").getLandState());
+        assertEquals(LandState.ACTIVE,     selectLand("wolfg").getLandState());
 
         return;
     }
@@ -347,6 +351,7 @@ public class LandDefTest {
 
         assertEquals(8, selectLand("wolf0").getMinMembers());
         assertEquals(11, selectLand("wolff").getMinMembers());
+        assertEquals(10, selectLand("wolfg").getMinMembers());
 
         return;
     }
@@ -360,6 +365,7 @@ public class LandDefTest {
 
         assertEquals(16, selectLand("wolf0").getMaxMembers());
         assertEquals(16, selectLand("wolff").getMaxMembers());
+        assertEquals(16, selectLand("wolfg").getMaxMembers());
 
         return;
     }
@@ -375,6 +381,8 @@ public class LandDefTest {
                      selectLand("wolf").getWebURI().toString());
         assertEquals("http://ninjin002.x0.com/wolff/",
                      selectLand("wolff").getWebURI().toString());
+        assertEquals("http://www.wolfg.x0.com/",
+                     selectLand("wolfg").getWebURI().toString());
 
         return;
     }
@@ -390,6 +398,8 @@ public class LandDefTest {
                      selectLand("wolf").getCgiURI().toString());
         assertEquals("http://ninjin002.x0.com/wolff/index.rb",
                      selectLand("wolff").getCgiURI().toString());
+        assertEquals("http://www.wolfg.x0.com/index.rb",
+                     selectLand("wolfg").getCgiURI().toString());
 
         return;
     }
@@ -407,6 +417,8 @@ public class LandDefTest {
                      selectLand("wolf0").getTombFaceIconURI().toString());
         assertEquals("plugin_wolf/img/face99.jpg",
                      selectLand("wolff").getTombFaceIconURI().toString());
+        assertEquals("plugin_wolf/img/face99.jpg",
+                     selectLand("wolfg").getTombFaceIconURI().toString());
 
         return;
     }
@@ -424,6 +436,8 @@ public class LandDefTest {
                      selectLand("wolf0").getTombBodyIconURI().toString());
         assertEquals("plugin_wolf/img/body99.jpg",
                      selectLand("wolff").getTombBodyIconURI().toString());
+        assertEquals("plugin_wolf/img/body99.jpg",
+                     selectLand("wolfg").getTombBodyIconURI().toString());
 
         return;
     }
@@ -441,6 +455,8 @@ public class LandDefTest {
                      selectLand("wolf0").getFaceURITemplate());
         assertEquals("./plugin_wolf/img/face{0,number,#00}.jpg",
                      selectLand("wolff").getFaceURITemplate());
+        assertEquals("./plugin_wolf/img/face{0,number,#00}.jpg",
+                     selectLand("wolfg").getFaceURITemplate());
 
         return;
     }
@@ -458,6 +474,8 @@ public class LandDefTest {
                      selectLand("wolf0").getBodyURITemplate());
         assertEquals("./plugin_wolf/img/body{0,number,#00}.jpg",
                      selectLand("wolff").getBodyURITemplate());
+        assertEquals("./plugin_wolf/img/body{0,number,#00}.jpg",
+                     selectLand("wolfg").getBodyURITemplate());
 
         return;
     }
@@ -471,6 +489,7 @@ public class LandDefTest {
 
         assertEquals(Locale.JAPAN, selectLand("wolf").getLocale());
         assertEquals(Locale.JAPAN, selectLand("wolff").getLocale());
+        assertEquals(Locale.JAPAN, selectLand("wolfg").getLocale());
 
         return;
     }
@@ -487,6 +506,10 @@ public class LandDefTest {
         assertEquals(sj, selectLand("wolf").getEncoding());
         assertEquals(sj, selectLand("wolff").getEncoding());
 
+        Charset utf8 = Charset.forName("UTF-8");
+
+        assertEquals(utf8, selectLand("wolfg").getEncoding());
+
         return;
     }
 
@@ -501,6 +524,7 @@ public class LandDefTest {
 
         assertTrue(tz.hasSameRules(selectLand("wolf0").getTimeZone()));
         assertTrue(tz.hasSameRules(selectLand("wolff").getTimeZone()));
+        assertTrue(tz.hasSameRules(selectLand("wolfg").getTimeZone()));
 
         return;
     }
@@ -525,6 +549,10 @@ public class LandDefTest {
         cal.set(2005, 9-1, 12, 20, 21, 3);
         assertEquals(cal.getTimeInMillis(),
                      selectLand("wolff").getStartDateTime());
+
+        cal.set(2010, 3-1,  7, 13, 53, 27);
+        assertEquals(cal.getTimeInMillis(),
+                     selectLand("wolfg").getStartDateTime());
 
         return;
     }
@@ -560,6 +588,7 @@ public class LandDefTest {
 
         assertNotNull(selectLand("wolf0").getDescription());
         assertNotNull(selectLand("wolff").getDescription());
+        assertNotNull(selectLand("wolfg").getDescription());
 
         return;
     }
@@ -573,6 +602,7 @@ public class LandDefTest {
 
         assertNotNull(selectLand("wolf0").getContactInfo());
         assertNotNull(selectLand("wolff").getContactInfo());
+        assertNotNull(selectLand("wolfg").getContactInfo());
 
         return;
     }

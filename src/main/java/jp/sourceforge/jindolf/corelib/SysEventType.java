@@ -13,64 +13,78 @@ package jp.sourceforge.jindolf.corelib;
 public enum SysEventType{
 
     /** エントリースタート。 */
-    STARTENTRY,
+    STARTENTRY(EventFamily.ANNOUNCE),
     /** キャラ初登場。 */
-    ONSTAGE,
+    ONSTAGE(EventFamily.ANNOUNCE),
     /** 役職確定。 */
-    STARTMIRROR,
+    STARTMIRROR(EventFamily.ANNOUNCE),
     /** 役職人数内訳発表。 */
-    OPENROLE,
+    OPENROLE(EventFamily.ANNOUNCE),
     /** 襲撃成功。 */
-    MURDERED,
+    MURDERED(EventFamily.ANNOUNCE),
     /** 襲撃開始。 */
-    STARTASSAULT,
+    STARTASSAULT(EventFamily.ANNOUNCE),
     /** 生存者確認。 */
-    SURVIVOR,
+    SURVIVOR(EventFamily.ANNOUNCE),
     /** 投票結果。 */
-    COUNTING,
+    COUNTING(EventFamily.ANNOUNCE),
     /** 突然死。 */
-    SUDDENDEATH,
+    SUDDENDEATH(EventFamily.ANNOUNCE),
     /** 襲撃失敗。 */
-    NOMURDER,
+    NOMURDER(EventFamily.ANNOUNCE),
     /** 村側勝利。 */
-    WINVILLAGE,
+    WINVILLAGE(EventFamily.ANNOUNCE),
     /** 狼側勝利。 */
-    WINWOLF,
+    WINWOLF(EventFamily.ANNOUNCE),
     /** ハムスター勝利。 */
-    WINHAMSTER,
+    WINHAMSTER(EventFamily.ANNOUNCE),
     /** 役職&ログイン名公開。 */
-    PLAYERLIST,
+    PLAYERLIST(EventFamily.ANNOUNCE),
     /** 何らかのシステムトラブル。A国末期で頻発。 */
-    PANIC,
+    PANIC(EventFamily.ANNOUNCE),
     /** 参加者募集。 */
-    ASKENTRY,
+    ASKENTRY(EventFamily.ORDER),
     /** 行動確定要求。 */
-    ASKCOMMIT,
+    ASKCOMMIT(EventFamily.ORDER),
     /** 未発言者一覧。 */
-    NOCOMMENT,
+    NOCOMMENT(EventFamily.ORDER),
     /** エピローグ案内。 */
-    STAYEPILOGUE,
+    STAYEPILOGUE(EventFamily.ORDER),
     /** 村終了。 */
-    GAMEOVER,
+    GAMEOVER(EventFamily.ORDER),
     /** 占い先表示。 */
-    JUDGE,
+    JUDGE(EventFamily.EXTRA),
     /** 護衛先表示。 */
-    GUARD,
+    GUARD(EventFamily.EXTRA),
     /** 襲撃。 */
-    ASSAULT,
+    ASSAULT(null),
     /** 処刑結果表示。 */
-    EXECUTION,
+    EXECUTION(EventFamily.ANNOUNCE),
     /** 投票結果表示(G国版)。 */
-    COUNTING2,
+    COUNTING2(EventFamily.EXTRA),
     /** 失踪。 */
-    VANISH,
+    VANISH(EventFamily.ANNOUNCE),
     /** チェックアウト。 */
-    CHECKOUT,
+    CHECKOUT(EventFamily.ANNOUNCE),
     /** 定員不足。 */
-    SHORTMEMBER,
+    SHORTMEMBER(EventFamily.ANNOUNCE),
     /** 未定義。 */
-    UNKNOWN,
+    UNKNOWN(null),
     ;
+
+
+    private final EventFamily family;
+
+
+    /**
+     * コンストラクタ。
+     * @param family イベントファミリ
+     */
+    private SysEventType(EventFamily family){
+        this.family = family;
+        return;
+    }
+
 
     /**
      * イベントファミリを得る。
@@ -78,46 +92,7 @@ public enum SysEventType{
      * @return イベントファミリ
      */
     public EventFamily getEventFamily(){
-        switch(this){
-        case STARTENTRY:
-        case ONSTAGE:
-        case STARTMIRROR:
-        case OPENROLE:
-        case MURDERED:
-        case STARTASSAULT:
-        case SURVIVOR:
-        case COUNTING:
-        case SUDDENDEATH:
-        case NOMURDER:
-        case WINVILLAGE:
-        case WINWOLF:
-        case WINHAMSTER:
-        case PLAYERLIST:
-        case PANIC:
-        case EXECUTION:
-        case VANISH:
-        case CHECKOUT:
-        case SHORTMEMBER:
-            return EventFamily.ANNOUNCE;
-        case ASKENTRY:
-        case ASKCOMMIT:
-        case NOCOMMENT:
-        case STAYEPILOGUE:
-        case GAMEOVER:
-            return EventFamily.ORDER;
-        case JUDGE:
-        case GUARD:
-        case COUNTING2:
-            return EventFamily.EXTRA;
-        case ASSAULT:
-        case UNKNOWN:
-            return null;
-        default:
-            assert false;
-            break;
-        }
-
-        return null;
+        return this.family;
     }
 
 }

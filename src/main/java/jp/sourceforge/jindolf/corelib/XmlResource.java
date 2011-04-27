@@ -22,8 +22,6 @@ import java.util.Map;
  */
 public final class XmlResource{
 
-    private static final Class<?> THISCLASS = XmlResource.class;
-
     /** 独自XMLスキーマ 外部URI名の前置詞。 {@value} */
     public static final String O_XSDBASE =
             "http://jindolf.sourceforge.jp/xml/xsd/";
@@ -92,6 +90,10 @@ public final class XmlResource{
      */
     public static final Map<URI, URI> RESOLVE_MAP;
 
+
+    private static final Class<?> THISCLASS = XmlResource.class;
+
+
     static{
         new XmlResource();
 
@@ -126,6 +128,17 @@ public final class XmlResource{
         RESOLVE_MAP = Collections.unmodifiableMap(map);
     }
 
+
+    /**
+     * 隠れコンストラクタ。
+     */
+    private XmlResource(){
+        super();
+        assert this.getClass().equals(THISCLASS);
+        return;
+    }
+
+
     /**
      * 内部リソースのURIを得る。
      * @param res リソース名
@@ -150,15 +163,6 @@ public final class XmlResource{
     private static URI loadOuter(String http){
         URI uri = URI.create(http).normalize();
         return uri;
-    }
-
-    /**
-     * 隠れコンストラクタ。
-     */
-    private XmlResource(){
-        super();
-        assert this.getClass().equals(THISCLASS);
-        return;
     }
 
 }

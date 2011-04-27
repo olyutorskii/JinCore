@@ -127,6 +127,20 @@ public enum VillageTag{
         VTAG_PATTERN = Pattern.compile(vtagRegex.toString());
     }
 
+
+    private final String tagName;
+
+
+    /**
+     * 隠しコンストラクタ。
+     * @param tagName 村名
+     */
+    private VillageTag(String tagName){
+        this.tagName = tagName.intern();
+        return;
+    }
+
+
     /**
      * 村名からEnumメンバを得る。
      * @param tagName 村名
@@ -157,16 +171,6 @@ public enum VillageTag{
         return null;
     }
 
-    private final String tagName;
-
-    /**
-     * 隠しコンストラクタ。
-     * @param tagName 村名
-     */
-    private VillageTag(String tagName){
-        this.tagName = tagName.intern();
-        return;
-    }
 
     /**
      * 村名を得る。

@@ -25,6 +25,51 @@ import org.xml.sax.SAXException;
  */
 public final class PreDefAvatar{
 
+    private final String avatarId;
+    private final String fullName;
+    private final String jobTitle;
+    private final String shortName;
+    private final int serialNo;
+
+
+    /**
+     * コンストラクタ。
+     * @param avatarId Avatar識別子
+     * @param fullName フルネーム
+     * @param jobTitle 職業名
+     * @param shortName 省略名
+     * @param serialNo 通し番号
+     */
+    private PreDefAvatar(String avatarId,
+                         String fullName,
+                         String jobTitle,
+                         String shortName,
+                         int serialNo ){
+        super();
+
+        if(   avatarId  == null
+           || fullName  == null
+           || jobTitle  == null
+           || shortName == null ){
+            throw new NullPointerException();
+        }
+
+        if(   avatarId.length() <= 0
+           || fullName.length() <= 0
+           || serialNo < 0 ){
+            throw new IllegalArgumentException();
+        }
+
+        this.avatarId  = avatarId.intern();
+        this.fullName  = fullName.intern();
+        this.jobTitle  = jobTitle.intern();
+        this.shortName = shortName.intern();
+        this.serialNo  = serialNo;
+
+        return;
+    }
+
+
     /**
      * プリセット済みAvatar一覧リストを生成する。
      * @param builder DOMビルダ
@@ -128,48 +173,6 @@ public final class PreDefAvatar{
         return avatar;
     }
 
-    private final String avatarId;
-    private final String fullName;
-    private final String jobTitle;
-    private final String shortName;
-    private final int serialNo;
-
-    /**
-     * コンストラクタ。
-     * @param avatarId Avatar識別子
-     * @param fullName フルネーム
-     * @param jobTitle 職業名
-     * @param shortName 省略名
-     * @param serialNo 通し番号
-     */
-    private PreDefAvatar(String avatarId,
-                         String fullName,
-                         String jobTitle,
-                         String shortName,
-                         int serialNo ){
-        super();
-
-        if(   avatarId  == null
-           || fullName  == null
-           || jobTitle  == null
-           || shortName == null ){
-            throw new NullPointerException();
-        }
-
-        if(   avatarId.length() <= 0
-           || fullName.length() <= 0
-           || serialNo < 0 ){
-            throw new IllegalArgumentException();
-        }
-
-        this.avatarId  = avatarId.intern();
-        this.fullName  = fullName.intern();
-        this.jobTitle  = jobTitle.intern();
-        this.shortName = shortName.intern();
-        this.serialNo  = serialNo;
-
-        return;
-    }
 
     /**
      * Avatar識別子を返す。

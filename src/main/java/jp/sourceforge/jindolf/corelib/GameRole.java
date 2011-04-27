@@ -52,6 +52,32 @@ public enum GameRole{
         ROLE_PATTERN = Pattern.compile(roleRegex.toString());
     }
 
+
+    private final String roleName;
+    private final char shortName;
+    private final String xmlName;
+    private final Team team;
+
+
+    /**
+     * コンストラクタ。
+     * @param roleName 役職名
+     * @param shortName 短縮名
+     * @param xmlName XML用シンボル
+     * @param team 陣営
+     */
+    private GameRole(String roleName,
+                      char shortName,
+                      String xmlName,
+                      Team team ){
+        this.roleName = roleName.intern();
+        this.shortName = shortName;
+        this.xmlName = xmlName.intern();
+        this.team = team;
+        return;
+    }
+
+
     /**
      * 与えられたマッチャ先頭が定義済みRole名に一致しないか調べる。
      * @param matcher マッチャ
@@ -81,28 +107,6 @@ public enum GameRole{
         return BALANCE_COMPARATOR;
     }
 
-    private final String roleName;
-    private final char shortName;
-    private final String xmlName;
-    private final Team team;
-
-    /**
-     * コンストラクタ。
-     * @param roleName 役職名
-     * @param shortName 短縮名
-     * @param xmlName XML用シンボル
-     * @param team 陣営
-     */
-    private GameRole(String roleName,
-                      char shortName,
-                      String xmlName,
-                      Team team ){
-        this.roleName = roleName.intern();
-        this.shortName = shortName;
-        this.xmlName = xmlName.intern();
-        this.team = team;
-        return;
-    }
 
     /**
      * 役職名を返す。
@@ -144,6 +148,14 @@ public enum GameRole{
             implements Comparator<GameRole> {
 
         /**
+         * コンストラクタ。
+         */
+        private PowerBalanceComparator(){
+            super();
+            return;
+        }
+
+        /**
          * 役職に順序を割り当てる。
          * 村人陣営のほうが狼陣営より小さい値を返す。
          * @param role 役職
@@ -172,19 +184,12 @@ public enum GameRole{
         }
 
         /**
-         * コンストラクタ。
-         */
-        private PowerBalanceComparator(){
-            super();
-            return;
-        }
-
-        /**
          * {@inheritDoc}
          * @param role1 {@inheritDoc}
          * @param role2 {@inheritDoc}
          * @return {@inheritDoc}
          */
+        @Override
         public int compare(GameRole role1, GameRole role2){
             int power1 = getPowerValue(role1);
             int power2 = getPowerValue(role2);

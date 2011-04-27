@@ -61,6 +61,30 @@ public final class LandDef{
 
     private static final Pattern ISO8601_PATTERN;
 
+
+    private String landName;
+    private String landId;
+    private String formalName;
+    private String landPrefix;
+    private LandState landState;
+    private int minMembers;
+    private int maxMembers;
+    private URI webURI;
+    private URI cgiURI;
+    private URI tombFaceIconURI;
+    private URI tombBodyIconURI;
+    private String faceURITemplate;
+    private String bodyURITemplate;
+    private Locale locale;
+    private Charset encoding;
+    private TimeZone timeZone;
+    private long startDateTime;
+    private long endDateTime;
+    private String description;
+    private String contactInfo;
+    private int[] invalidVid;
+
+
     static{
         STATE_MAP = new HashMap<String, LandState>();
         STATE_MAP.put("closed",     LandState.CLOSED);
@@ -88,6 +112,16 @@ public final class LandDef{
 
         ISO8601_PATTERN = Pattern.compile(iso8601Regex);
     }
+
+
+    /**
+     * コンストラクタ。
+     */
+    private LandDef(){
+        super();
+        return;
+    }
+
 
     /**
      * ISO8601形式の日付をエポック秒msに変換する。
@@ -566,36 +600,6 @@ public final class LandDef{
         return result;
     }
 
-
-    private String landName;
-    private String landId;
-    private String formalName;
-    private String landPrefix;
-    private LandState landState;
-    private int minMembers;
-    private int maxMembers;
-    private URI webURI;
-    private URI cgiURI;
-    private URI tombFaceIconURI;
-    private URI tombBodyIconURI;
-    private String faceURITemplate;
-    private String bodyURITemplate;
-    private Locale locale;
-    private Charset encoding;
-    private TimeZone timeZone;
-    private long startDateTime;
-    private long endDateTime;
-    private String description;
-    private String contactInfo;
-    private int[] invalidVid;
-
-    /**
-     * コンストラクタ。
-     */
-    private LandDef(){
-        super();
-        return;
-    }
 
     /**
      * 国名を得る。

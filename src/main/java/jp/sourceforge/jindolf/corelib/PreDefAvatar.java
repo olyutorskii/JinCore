@@ -8,15 +8,11 @@
 package jp.sourceforge.jindolf.corelib;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
@@ -81,65 +77,20 @@ public final class PreDefAvatar{
             DocumentBuilder builder)
             throws IOException,
                    SAXException {
-        Element list = loadAvatarList(builder);
-        List<PreDefAvatar> result;
-        result = elemToAvatarList(list);
-        result = Collections.unmodifiableList(result);
-        return result;
-    }
+        List<Element> elemList = DomUtils.loadElemList(
+                builder, XmlResource.I_URL_AVATARDEF, "preDefinedAvatar");
 
-    /**
-     * プリセットAvatarに関する定義をロードする。
-     * @see XmlResource#I_URL_AVATARDEF ロード対象となるXMLリソースのURL
-     * @param builder DOMビルダ
-     * @return Avatar定義情報のルート要素
-     * @throws IOException IOエラー
-     * @throws SAXException パースエラー
-     */
-    private static Element loadAvatarList(DocumentBuilder builder)
-            throws IOException,
-                   SAXException {
-        InputStream istream = XmlResource.I_URL_AVATARDEF.openStream();
-        Document document;
-        try{
-            document = builder.parse(istream);
-        }finally{
-            istream.close();
-        }
+        List<PreDefAvatar> result =
+                new ArrayList<PreDefAvatar>(elemList.size());
 
-        Element root = document.getDocumentElement();
-        String tagName = root.getTagName();
-        if( ! "preDefinedAvatarList".equals(tagName) ){
-            throw new SAXException("illegal root " + tagName);
-        }
-
-        return root;
-    }
-
-    /**
-     * 要素内部を探索し、プリセットAvatarを登録する。
-     * @param list ルート要素
-     * @return プリセットAvatarが登録されたList
-     * @throws SAXException パースエラー
-     */
-    private static List<PreDefAvatar> elemToAvatarList(Element list)
-            throws SAXException {
-        NodeList elems = list.getElementsByTagName("preDefinedAvatar");
-        int avatarNum = elems.getLength();
-        if(avatarNum <= 0){
-            throw new SAXException("there is no <preDefinedAvatar>");
-        }
-        List<PreDefAvatar> avatarList =
-                new ArrayList<PreDefAvatar>(avatarNum);
-
-        for(int index = 0; index < avatarNum; index++){
-            Node node = elems.item(index);
-            Element elem = (Element) node;
+        for(Element elem : elemList){
             PreDefAvatar avatar = buildAvatar(elem);
-            avatarList.add(avatar);
+            result.add(avatar);
         }
 
-        return avatarList;
+        result = Collections.unmodifiableList(result);
+
+        return result;
     }
 
     /**

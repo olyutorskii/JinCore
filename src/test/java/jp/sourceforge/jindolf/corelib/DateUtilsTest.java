@@ -16,7 +16,6 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author shiro
  */
 public class DateUtilsTest {
 

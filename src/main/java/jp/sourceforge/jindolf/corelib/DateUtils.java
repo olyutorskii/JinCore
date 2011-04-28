@@ -1,5 +1,6 @@
 /*
- * DOM Utilities
+ * Date Utilities
+ * (ISO8601)
  *
  * License : The MIT License
  * Copyright(c) 2011 olyutorskii
@@ -19,24 +20,25 @@ import java.util.regex.Pattern;
 final class DateUtils{
 
     private static final Pattern ISO8601_PATTERN;
-
+    private static final String REG_PLUS   = "\\+";
+    private static final String REG_HYPHEN = "\\-";
 
     static{
-        String year = "([0-9][0-9][0-9][0-9])";
-        String month = "([0-1][0-9])";
-        String day = "([0-3][0-9])";
-        String hour = "([0-2][0-9])";
+        String year   = "([0-9][0-9][0-9][0-9])";
+        String month  = "([0-1][0-9])";
+        String day    = "([0-3][0-9])";
+        String hour   = "([0-2][0-9])";
         String minute = "([0-5][0-9])";
         String second = "([0-6][0-9])";
         String timezone =
                 "("+
-                    "[\\+\\-][0-2][0-9]"+
+                    "["+REG_PLUS+REG_HYPHEN+"][0-2][0-9]"+
                     "(?:"+ ":?[0-5][0-9]" +")?"+
                 "|"+
                     "Z"+
                 ")";
         String iso8601Regex =
-                year +"\\-"+ month +"\\-"+ day
+                year +REG_HYPHEN+ month +REG_HYPHEN+ day
                 +"T"+
                 hour +":"+ minute +":"+ second
                 +timezone;

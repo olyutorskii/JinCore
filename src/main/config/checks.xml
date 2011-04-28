@@ -7,7 +7,7 @@
 <!--
     Checkstyle用チェック項目定義。
 
-    Checkstyle5.1以降向けに記述。
+    Checkstyle 5.0 以降向けに記述。
 
     [ http://checkstyle.sourceforge.net/ ]
 
@@ -166,7 +166,10 @@
         <module name="MissingCtor" />
         <module name="FallThrough" />
         <module name="MultipleStringLiterals">
-            <property name="ignoreStringsRegexp" value="^&quot;&quot;$|." />
+            <property
+                name="ignoreStringsRegexp"
+                value="^&quot;&quot;$|^&quot;.&quot;$"
+            />
         </module>
         <module name="MultipleVariableDeclarations" />
         <module name="UnnecessaryParentheses" />
@@ -279,7 +282,10 @@
         <module name="EmptyForInitializerPad" />
         <module name="EmptyForIteratorPad" />
         <module name="MethodParamPad">
-            <property name="tokens" value="CTOR_DEF, LITERAL_NEW, METHOD_DEF, SUPER_CTOR_CALL" />
+            <property
+                name="tokens"
+                value="CTOR_DEF, LITERAL_NEW, METHOD_DEF, SUPER_CTOR_CALL"
+            />
         </module>
         <module name="NoWhitespaceAfter">
             <property name="allowLineBreaks" value="false" />
@@ -316,7 +322,10 @@
         </module>
         <module name="ParenPad">
             <property name="option" value="nospace" />
-            <property name="tokens" value="CTOR_CALL, METHOD_CALL, SUPER_CTOR_CALL" />
+            <property
+                name="tokens"
+                value="CTOR_CALL, METHOD_CALL, SUPER_CTOR_CALL"
+            />
         </module>
         <module name="TypecastParenPad" />
         <module name="WhitespaceAfter">
@@ -332,7 +341,8 @@
                        SL, SR,
                        SL_ASSIGN, SR_ASSIGN,
                        MINUS, STAR, DIV, MOD,
-                       PLUS_ASSIGN, MINUS_ASSIGN, STAR_ASSIGN, DIV_ASSIGN, MOD_ASSIGN,
+                       PLUS_ASSIGN, MINUS_ASSIGN,
+                       STAR_ASSIGN, DIV_ASSIGN, MOD_ASSIGN,
                        EQUAL, NOT_EQUAL, GT, GE, LT, LE,
                        "
             />

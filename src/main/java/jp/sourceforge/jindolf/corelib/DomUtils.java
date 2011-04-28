@@ -116,7 +116,7 @@ final class DomUtils{
         }
         String result = attr.getValue();
         if(result == null){
-            throw new SAXException("no attribute[" + attrName + "]");
+            throw new SAXException("no value[" + attrName + "]");
         }
         return result;
     }

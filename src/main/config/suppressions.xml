@@ -5,12 +5,20 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <!--
+    Checkstyle用警告抑止設定
+    ※ SuppressionFilter モジュール用
+
+    [ http://checkstyle.sourceforge.net/ ]
+
+    Copyright(c) 2010 olyutorskii
 -->
+
 
 <suppressions>
 
     <suppress id="" files="" checks="" lines="" columns="" />
 
 </suppressions>
+
 
 <!-- EOF -->

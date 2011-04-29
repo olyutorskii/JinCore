@@ -16,7 +16,20 @@
 
 <suppressions>
 
-    <suppress id="" files="" checks="" lines="" columns="" />
+<!--
+    <suppress files="" checks="ExecutableStatementCount" />
+
+    <suppress files="" checks="ClassDataAbstractionCoupling" />
+    <suppress files="" checks="ClassFanOutComplexity" />
+    <suppress files="" checks="CyclomaticComplexity" />
+    <suppress files="" checks="NPathComplexity" />
+    <suppress files="" checks="JavaNCSS" />
+-->
+
+<!--
+    <suppress files="" checks="MagicNumber" />
+    <suppress files="" checks="MultipleStringLiterals" />
+-->
 
 </suppressions>
 

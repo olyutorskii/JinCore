@@ -250,16 +250,29 @@
 
     <!-- Naming Conventions -->
 
-        <module name="AbstractClassName" />
+        <module name="AbstractClassName">
+            <property
+                name="format"
+                value="^Abstract.*$|^.*Factory$|^.*Builder$|^.*Adapter$"
+            />
+        </module>
         <module name="ClassTypeParameterName" />
         <module name="ConstantName" />
-        <module name="LocalFinalVariableName" />
-        <module name="LocalVariableName" />
-        <module name="MemberName" />
+        <module name="LocalFinalVariableName">
+            <property name="format" value="^[a-z][_a-zA-Z0-9]*$" />
+        </module>
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z][_a-zA-Z0-9]*$" />
+        </module>
+        <module name="MemberName">
+            <property name="format" value="^[a-z][_a-zA-Z0-9]*$" />
+        </module>
         <module name="MethodName" />
         <module name="MethodTypeParameterName" />
         <module name="PackageName" />
-        <module name="ParameterName" />
+        <module name="ParameterName">
+            <property name="format" value="^[a-z][_a-zA-Z0-9]*$" />
+        </module>
         <module name="StaticVariableName" />
         <module name="TypeName" />
 

@@ -20,7 +20,7 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 ※ このアーカイブにはJindolfの実行バイナリは含まれていません。
 　 Jindolfを動かしたい方は、jindolfで始まり拡張子が*.jarであるファイルを
 　 別途入手してください。
-※ 人狼BBSのURLは [ http://homepage2.nifty.com/ninjinia/ ] まで
+※ 人狼BBSのURLは [ http://ninjinix.com/ ] まで
 ※ 人狼BBSを主催するninjin氏は、JinCoreの製作に一切関与していません。
 　 JinCoreに関する問い合わせををninjin氏へ投げかけないように！約束だよ！
 

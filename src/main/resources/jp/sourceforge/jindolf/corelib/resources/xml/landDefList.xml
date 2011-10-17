@@ -13,7 +13,7 @@
     xsi:schemaLocation="http://jindolf.sourceforge.jp/xml/ns/401
                         http://jindolf.sourceforge.jp/xml/xsd/coreXML-090829.xsd"
     xml:lang="ja-JP"
-    update="2010-08-26T20:00:00+09:00"
+    update="2011-10-18T03:00:00+09:00"
 >
 
 <!--
@@ -44,8 +44,8 @@
         timeZone="GMT+09:00"
         startDate="2004-08-15T23:31:36+09:00"
         endDate="2004-09-30T13:58:31+09:00"
-        description="人狼BBS 古国（旧人狼BBS 2　過去ログのみ"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        description="人狼BBS 古国（旧人狼BBS 2）　過去ログのみ"
+        contactInfo="http://ninjinix.com/"
     />
 
     <landDef
@@ -67,8 +67,8 @@
         timeZone="GMT+09:00"
         startDate="2004-10-03T18:59:46+09:00"
         endDate="2005-02-25T18:59:28+09:00"
-        description="人狼BBS 本国（人狼BBS　過去ログのみ"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        description="人狼BBS 本国（人狼BBS）　過去ログのみ"
+        contactInfo="http://ninjinix.com/"
     />
 
     <landDef
@@ -91,7 +91,7 @@
         startDate="2004-10-11T16:07:11+09:00"
         endDate="2004-12-31T18:29:58+09:00"
         description="人狼BBS A国　過去ログのみ　A340村以降、システム障害が多発"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        contactInfo="http://ninjinix.com/"
         invalidVid="340-342,346-365,367-386"
     /><!-- A339,A345はエピローグのみ一部消失 -->
 
@@ -115,7 +115,7 @@
         startDate="2004-12-24T02:07:06+09:00"
         endDate="2005-02-03T02:29:56+09:00"
         description="人狼BBS B国　過去ログのみ　B149村は欠番"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        contactInfo="http://ninjinix.com/"
         invalidVid="149"
     />
 
@@ -139,7 +139,7 @@
         startDate="2005-01-21T01:47:32+09:00"
         endDate="2007-10-01T13:29:56+09:00"
         description="人狼BBS C国　過去ログのみ （人狼と狂人で囁きあい可能）"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        contactInfo="http://ninjinix.com/"
         invalidVid="451"
     />
 
@@ -163,7 +163,7 @@
         startDate="2005-02-17T23:59:28+09:00"
         endDate="2005-09-11T11:30:53+09:00"
         description="人狼BBS D国　過去ログのみ"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        contactInfo="http://ninjinix.com/"
     />
 
     <landDef
@@ -186,7 +186,7 @@
         startDate="2005-08-19T14:13:53+09:00"
         endDate="2006-01-07T15:59:58+09:00"
         description="人狼BBS E国　過去ログのみ （ハムスター有り）"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        contactInfo="http://ninjinix.com/"
     />
 
     <landDef
@@ -209,7 +209,7 @@
         startDate="2005-09-12T20:21:03+09:00"
         endDate="2010-03-15T20:15:01+09:00"
         description="人狼BBS F国　F1945,F1973村は欠番"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        contactInfo="http://ninjinix.com/"
     />
 
     <landDef
@@ -231,7 +231,7 @@
         timeZone="GMT+09:00"
         startDate="2010-03-07T13:53:27+09:00"
         description="人狼BBS G国"
-        contactInfo="http://homepage2.nifty.com/ninjinia/"
+        contactInfo="http://ninjinix.com/"
     />
 
 </landDefList>

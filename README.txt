@@ -1,6 +1,6 @@
 [UTF-8 Japanese]
 
-                              JinCoreライブラリ
+                               J i n C o r e
                                   README
 
                                               Copyright(c) 2009 olyutorskii
@@ -35,14 +35,6 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
    原則として、JRE1.5に準拠した実行系であれば、プラットフォームを選びません。
 
 
-=== アーカイブ管理体制 ===
-
-  このアーカイブは、UTF-8による開発環境を前提として構成されています。
-  このアーカイブの原本となる開発資産は、
-      http://hg.sourceforge.jp/view/jindolf/JinCore
-  を上位に持つMercurialリポジトリで管理されています。
-
-
 === 開発プロジェクト運営元 ===
 
   http://sourceforge.jp/projects/jindolf/devel/ まで。
@@ -50,7 +42,7 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 
 === ディレクトリ内訳構成 ===
 
-基本的にはMaven2のmaven-archetype-quickstart構成に準じます。
+基本的にはMaven3のmaven-archetype-quickstart構成に準じます。
 
 ./README.txt
     あなたが今見てるこれ。
@@ -61,11 +53,11 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 ./LICENSE.txt
     ライセンスに関して。
 
-./pom.xml
-    Maven2用プロジェクト構成定義ファイル。
+./SCM.txt
+    ソースコード管理に関して。
 
-./build.xml
-    Ant用追加タスク。
+./pom.xml
+    Maven3用プロジェクト構成定義ファイル。
 
 ./src/main/java/
     Javaのソースコード。
@@ -75,6 +67,9 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 
 ./src/test/java/
     JUnit 4.* 用のユニットテストコード。
+
+./src/main/config/
+    各種ビルド・構成管理に必要なファイル群。
 
 ./src/main/config/checks.xml
     Checkstyle用configファイル。

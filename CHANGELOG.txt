@@ -5,6 +5,7 @@ JinCore 変更履歴
 
 
 1.206.5-SNAPSHOT (201X-XX-XX)
+    ・Maven3対応。
     ・ninjin氏の連絡先を http://ninjinix.com へ変更。
 
 1.206.4 (2011-05-10)

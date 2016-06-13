@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
@@ -26,6 +27,10 @@ import org.xml.sax.SAXException;
  * DOM ユーティリティ。
  */
 final class DomUtils{
+
+    private static final String ERR_NOATTR = "no attribute[{0}]";
+    private static final String ERR_NOVAL  = "no value[{0}]";
+
 
     /**
      * 隠しコンストラクタ。
@@ -90,7 +95,7 @@ final class DomUtils{
         NodeList nodeList = root.getElementsByTagName(childName);
         int childNum = nodeList.getLength();
 
-        List<Element> result = new ArrayList<Element>(childNum);
+        List<Element> result = new ArrayList<>(childNum);
 
         for(int index = 0; index < childNum; index++){
             Node node = nodeList.item(index);
@@ -112,11 +117,13 @@ final class DomUtils{
             throws SAXException{
         Attr attr = elem.getAttributeNode(attrName);
         if(attr == null){
-            throw new SAXException("no attribute[" + attrName + "]");
+            String msg = MessageFormat.format(ERR_NOATTR, attrName);
+            throw new SAXException(msg);
         }
         String result = attr.getValue();
         if(result == null){
-            throw new SAXException("no value[" + attrName + "]");
+            String msg = MessageFormat.format(ERR_NOVAL, attrName);
+            throw new SAXException(msg);
         }
         return result;
     }

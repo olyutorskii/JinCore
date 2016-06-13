@@ -95,7 +95,7 @@ public final class XmlResource{
 
 
     static{
-        new XmlResource();
+        new XmlResource().hashCode();
 
         O_URI_EXTXML   = loadOuter(O_RES_EXTXML);
         O_URI_CORETYPE = loadOuter(O_RES_CORETYPE);
@@ -121,7 +121,7 @@ public final class XmlResource{
             throw new ExceptionInInitializerError(e);
         }
 
-        Map<URI, URI> map = new HashMap<URI, URI>();
+        Map<URI, URI> map = new HashMap<>();
         map.put(O_URI_EXTXML,   I_URI_EXTXML);
         map.put(O_URI_CORETYPE, I_URI_CORETYPE);
         map.put(O_URI_COREXML,  I_URI_COREXML);

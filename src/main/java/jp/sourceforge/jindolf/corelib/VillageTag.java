@@ -103,8 +103,7 @@ public enum VillageTag{
     TANIZOKO      ("谷底の村"),
     ;
 
-    private static final Map<String, VillageTag> TAGMAP =
-            new HashMap<String, VillageTag>();
+    private static final Map<String, VillageTag> TAGMAP = new HashMap<>();
     private static final VillageTag[] VALUES = values();
     private static final int VALUE_NUM = values().length;
     private static final Pattern VTAG_PATTERN;

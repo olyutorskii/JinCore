@@ -24,24 +24,28 @@ final class DateUtils{
     private static final String REG_HYPHEN = "\\-";
 
     static{
-        String year   = "([0-9][0-9][0-9][0-9])";
-        String month  = "([0-1][0-9])";
-        String day    = "([0-3][0-9])";
-        String hour   = "([0-2][0-9])";
-        String minute = "([0-5][0-9])";
-        String second = "([0-6][0-9])";
-        String timezone =
-                "("+
-                    "["+REG_PLUS+REG_HYPHEN+"][0-2][0-9]"+
-                    "(?:"+ ":?[0-5][0-9]" +")?"+
-                "|"+
-                    "Z"+
-                ")";
-        String iso8601Regex =
-                year +REG_HYPHEN+ month +REG_HYPHEN+ day
-                +"T"+
-                hour +":"+ minute +":"+ second
-                +timezone;
+        String gYear   = "([0-9][0-9][0-9][0-9])";
+        String gMonth  = "([0-1][0-9])";
+        String gDay    = "([0-3][0-9])";
+        String gHour   = "([0-2][0-9])";
+        String gMinute = "([0-5][0-9])";
+        String gSecond = "([0-6][0-9])";
+
+        String diffHour = "[" + REG_PLUS + REG_HYPHEN + "][0-2][0-9]";
+        String diffMin  = "(?:" + ":?[0-5][0-9]" + ")?";
+        String gTimezone = "(" + diffHour + diffMin + "|Z)";
+
+        StringBuilder txt = new StringBuilder();
+        txt.append(gYear).append(REG_HYPHEN);
+        txt.append(gMonth).append(REG_HYPHEN);
+        txt.append(gDay);
+        txt.append('T');
+        txt.append(gHour).append(':');
+        txt.append(gMinute).append(':');
+        txt.append(gSecond);
+        txt.append(gTimezone);
+
+        String iso8601Regex = txt.toString();
 
         ISO8601_PATTERN = Pattern.compile(iso8601Regex);
     }
@@ -86,9 +90,9 @@ final class DateUtils{
         int minute = Integer.parseInt(minuteStr);
         int second = Integer.parseInt(secondStr);
 
-        String tzID = "GMT";
-        if( tzString.compareToIgnoreCase("Z") == 0 ) tzID += "+00:00";
-        else                                         tzID += tzString;
+        String tzID;
+        if( tzString.compareToIgnoreCase("Z") == 0 ) tzID = "GMT+00:00";
+        else                                         tzID = "GMT" + tzString;
         TimeZone timezone = TimeZone.getTimeZone(tzID);
 
         Calendar calendar = new GregorianCalendar();

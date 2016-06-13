@@ -49,9 +49,13 @@ public final class LandDef{
 
     private static final Map<String, LandState> STATE_MAP;
 
+    private static final char HYPHEN_CH = '-';
+    private static final String HYPHEN = "-";
+    private static final String COMMA = ",";
+
 
     static{
-        STATE_MAP = new HashMap<String, LandState>();
+        STATE_MAP = new HashMap<>();
         STATE_MAP.put("closed",     LandState.CLOSED);
         STATE_MAP.put("historical", LandState.HISTORICAL);
         STATE_MAP.put("active",     LandState.ACTIVE);
@@ -101,7 +105,7 @@ public final class LandDef{
             throws IllegalArgumentException{
         String token = seq.toString();
 
-        String[] ivalues = token.split("-");
+        String[] ivalues = token.split(HYPHEN);
         assert ivalues.length >= 1;
         if(ivalues.length >= 3){
             throw new IllegalArgumentException(token);
@@ -140,18 +144,18 @@ public final class LandDef{
      */
     public static SortedSet<Integer> parseIntList(CharSequence seq)
             throws IllegalArgumentException{
-        SortedSet<Integer> result = new TreeSet<Integer>();
+        SortedSet<Integer> result = new TreeSet<>();
 
         if(seq.length() <= 0 ) return result;
         String str = seq.toString();
         str = str.replaceAll("\\p{Blank}", "");
 
-        String[] tokens = str.split(",");
+        String[] tokens = str.split(COMMA);
         assert tokens.length >= 1;
         for(String token : tokens){
             if(token.length() <= 0) continue;
-            if(   token.charAt(0) == '-'
-               || token.endsWith("-") ){
+            if(   token.charAt(0) == HYPHEN_CH
+               || token.endsWith(HYPHEN) ){
                 throw new IllegalArgumentException(token);
             }
             parseIntPair(result, token);
@@ -173,7 +177,7 @@ public final class LandDef{
         List<Element> elemList = DomUtils.loadElemList(
                 builder, XmlResource.I_URL_LANDDEF, "landDef");
 
-        List<LandDef> result = new ArrayList<LandDef>(elemList.size());
+        List<LandDef> result = new ArrayList<>(elemList.size());
 
         for(Element elem : elemList){
             LandDef landDef = buildLandDef(elem);
@@ -195,7 +199,7 @@ public final class LandDef{
         String country = "";
         String variant = "";
 
-        String[] lcstr = attrVal.toString().split("-", 3);
+        String[] lcstr = attrVal.toString().split(HYPHEN, 3);
         if(lcstr.length >= 1) lang    = lcstr[0];
         if(lcstr.length >= 2) country = lcstr[1];
         if(lcstr.length >= 3) variant = lcstr[2];
@@ -551,7 +555,8 @@ public final class LandDef{
      * @return タイムゾーン
      */
     public TimeZone getTimeZone(){
-        TimeZone result = (TimeZone)( this.timeZone.clone() );
+        Object copy = this.timeZone.clone();
+        TimeZone result = (TimeZone) copy;
         return result;
     }
 

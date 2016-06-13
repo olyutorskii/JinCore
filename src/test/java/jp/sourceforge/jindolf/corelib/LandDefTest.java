@@ -22,6 +22,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
+
 import static org.junit.Assert.*;
 
 /**
@@ -68,7 +69,7 @@ public class LandDefTest {
 
         seq = "1,2,3";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(3, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -76,7 +77,7 @@ public class LandDefTest {
 
         seq = "\u0020\t1\u0020,2,\u00203\t\u0020";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(3, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -84,7 +85,7 @@ public class LandDefTest {
 
         seq = "1-3";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(3, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -92,7 +93,7 @@ public class LandDefTest {
 
         seq = "1\u0020\t-\t\u00203";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(3, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -100,7 +101,7 @@ public class LandDefTest {
 
         seq = "3,2,1";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(3, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -108,7 +109,7 @@ public class LandDefTest {
 
         seq = "3-1";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(3, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -116,7 +117,7 @@ public class LandDefTest {
 
         seq = "1,2,3,11-13";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(6, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -127,7 +128,7 @@ public class LandDefTest {
 
         seq = "1,2,11-13,3";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(6, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -138,20 +139,20 @@ public class LandDefTest {
 
         seq = "1,1";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(1, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
 
         seq = "1,2,1";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(2, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
 
         seq = "1-3,2-4";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(4, result.size());
         assertEquals(Integer.valueOf(1), result.get(0));
         assertEquals(Integer.valueOf(2), result.get(1));
@@ -160,61 +161,61 @@ public class LandDefTest {
 
         seq = "";
         coll = LandDef.parseIntList(seq);
-        result = new ArrayList<Integer>(coll);
+        result = new ArrayList<>(coll);
         assertEquals(0, result.size());
 
         seq = "x";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }
 
         seq = "1,x,3";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }
 
         seq = "-";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }
 
         seq = "1-2-3";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }
 
         seq = "1-x";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }
 
         seq = "x-3";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }
 
         seq = "1-";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }
 
         seq = "-3";
         try{
-            coll = LandDef.parseIntList(seq);
+            LandDef.parseIntList(seq);
             fail();
         }catch(IllegalArgumentException e){
         }

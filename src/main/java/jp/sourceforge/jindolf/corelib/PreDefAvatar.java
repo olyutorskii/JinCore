@@ -80,8 +80,7 @@ public final class PreDefAvatar{
         List<Element> elemList = DomUtils.loadElemList(
                 builder, XmlResource.I_URL_AVATARDEF, "preDefinedAvatar");
 
-        List<PreDefAvatar> result =
-                new ArrayList<PreDefAvatar>(elemList.size());
+        List<PreDefAvatar> result = new ArrayList<>(elemList.size());
 
         for(Element elem : elemList){
             PreDefAvatar avatar = buildAvatar(elem);

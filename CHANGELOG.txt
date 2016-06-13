@@ -4,6 +4,10 @@
 JinCore 変更履歴
 
 
+1.206.7-SNAPSHOT (2016-XX-XX)
+    ・OSDN.JP対応。
+    ・Mavenプラグイン更新。
+
 1.206.6 (2012-06-20)
     ・Maven3対応。
     ・ninjin氏の連絡先を http://ninjinix.com へ変更。

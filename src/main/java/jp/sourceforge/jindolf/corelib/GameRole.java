@@ -17,21 +17,21 @@ import java.util.regex.Pattern;
 public enum GameRole{
 
     /** 村人。 */
-    INNOCENT("村人", '村', "innocent", Team.VILLAGE),
+    INNOCENT("村人", '村', "innocent",         Team.VILLAGE, -50),
     /** 人狼。 */
-    WOLF("人狼", '狼', "wolf", Team.WOLF),
+    WOLF("人狼", '狼', "wolf",                 Team.WOLF,    +20),
     /** 占い師。 */
-    SEER("占い師", '占', "seer", Team.VILLAGE),
+    SEER("占い師", '占', "seer",               Team.VILLAGE, -30),
     /** 霊能者。 */
-    SHAMAN("霊能者", '霊', "shaman", Team.VILLAGE),
+    SHAMAN("霊能者", '霊', "shaman",           Team.VILLAGE, -20),
     /** 狂人。 */
-    MADMAN("狂人", '狂', "madman", Team.WOLF),
+    MADMAN("狂人", '狂', "madman",             Team.WOLF,    +10),
     /** 狩人。 */
-    HUNTER("狩人", '狩', "hunter", Team.VILLAGE),
+    HUNTER("狩人", '狩', "hunter",             Team.VILLAGE, -10),
     /** 共有者。 */
-    FRATER("共有者", '共', "frater", Team.VILLAGE),
+    FRATER("共有者", '共', "frater",           Team.VILLAGE, -40),
     /** ハムスター人間。 */
-    HAMSTER("ハムスター人間", '公', "hamster", Team.HAMSTER),
+    HAMSTER("ハムスター人間", '公', "hamster", Team.HAMSTER,   0),
     ;
 
     private static final Comparator<GameRole> BALANCE_COMPARATOR =
@@ -57,6 +57,7 @@ public enum GameRole{
     private final char shortName;
     private final String xmlName;
     private final Team team;
+    private final int order;
 
 
     /**
@@ -65,15 +66,18 @@ public enum GameRole{
      * @param shortName 短縮名
      * @param xmlName XML用シンボル
      * @param team 陣営
+     * @param order 順位
      */
     private GameRole(String roleName,
                       char shortName,
                       String xmlName,
-                      Team team ){
+                      Team team,
+                      int order ){
         this.roleName = roleName.intern();
         this.shortName = shortName;
         this.xmlName = xmlName.intern();
         this.team = team;
+        this.order = order;
         return;
     }
 
@@ -141,9 +145,19 @@ public enum GameRole{
     }
 
     /**
+     * 順位を返す。
+     * @return 順位
+     */
+    private int getOrder(){
+        return this.order;
+    }
+
+
+    /**
      * 勢力バランス表記用Comparator。
      * 「村共占霊狩公狂狼」の順で役職を一意に順序づける。
      */
+    @SuppressWarnings("serial")
     private static final class PowerBalanceComparator
             implements Comparator<GameRole> {
 
@@ -159,28 +173,12 @@ public enum GameRole{
          * 役職に順序を割り当てる。
          * 村人陣営のほうが狼陣営より小さい値を返す。
          * @param role 役職
-         * @return 強さ
+         * @return 順位
          */
         private static int getPowerValue(GameRole role){
-            int power;
-
             if(role == null) return Integer.MIN_VALUE;
-
-            switch(role){
-            case INNOCENT: power = -50; break;
-            case FRATER:   power = -40; break;
-            case SEER:     power = -30; break;
-            case SHAMAN:   power = -20; break;
-            case HUNTER:   power = -10; break;
-            case HAMSTER:  power =   0; break;
-            case MADMAN:   power = +10; break;
-            case WOLF:     power = +20; break;
-            default:
-                assert false;
-                throw new AssertionError();
-            }
-
-            return power;
+            int result = role.getOrder();
+            return result;
         }
 
         /**
@@ -191,9 +189,9 @@ public enum GameRole{
          */
         @Override
         public int compare(GameRole role1, GameRole role2){
-            int power1 = getPowerValue(role1);
-            int power2 = getPowerValue(role2);
-            return power1 - power2;
+            int order1 = getPowerValue(role1);
+            int order2 = getPowerValue(role2);
+            return order1 - order2;
         }
 
     }

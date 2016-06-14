@@ -24,25 +24,30 @@ final class DateUtils{
     private static final String REG_HYPHEN = "\\-";
 
     static{
+        StringBuilder txt = new StringBuilder();
+
         String gYear   = "([0-9][0-9][0-9][0-9])";
         String gMonth  = "([0-1][0-9])";
         String gDay    = "([0-3][0-9])";
+
+        txt.append(gYear).append(REG_HYPHEN);
+        txt.append(gMonth).append(REG_HYPHEN);
+        txt.append(gDay);
+
+        txt.append('T');
+
         String gHour   = "([0-2][0-9])";
         String gMinute = "([0-5][0-9])";
         String gSecond = "([0-6][0-9])";
+
+        txt.append(gHour).append(':');
+        txt.append(gMinute).append(':');
+        txt.append(gSecond);
 
         String diffHour = "[" + REG_PLUS + REG_HYPHEN + "][0-2][0-9]";
         String diffMin  = "(?:" + ":?[0-5][0-9]" + ")?";
         String gTimezone = "(" + diffHour + diffMin + "|Z)";
 
-        StringBuilder txt = new StringBuilder();
-        txt.append(gYear).append(REG_HYPHEN);
-        txt.append(gMonth).append(REG_HYPHEN);
-        txt.append(gDay);
-        txt.append('T');
-        txt.append(gHour).append(':');
-        txt.append(gMinute).append(':');
-        txt.append(gSecond);
         txt.append(gTimezone);
 
         String iso8601Regex = txt.toString();

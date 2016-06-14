@@ -43,16 +43,16 @@ public final class PreDefAvatar{
                          int serialNo ){
         super();
 
-        if(   avatarId  == null
-           || fullName  == null
-           || jobTitle  == null
-           || shortName == null ){
+        if(    avatarId  == null
+            || fullName  == null
+            || jobTitle  == null
+            || shortName == null ){
             throw new NullPointerException();
         }
 
-        if(   avatarId.length() <= 0
-           || fullName.length() <= 0
-           || serialNo < 0 ){
+        if(    avatarId.length() <= 0
+            || fullName.length() <= 0
+            || serialNo < 0 ){
             throw new IllegalArgumentException();
         }
 

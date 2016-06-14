@@ -49,6 +49,9 @@ public final class LandDef{
 
     private static final Map<String, LandState> STATE_MAP;
 
+    /** space or tab. */
+    private static final String REG_POSIXBLANK = "\\p{Blank}";
+
     private static final char HYPHEN_CH = '-';
     private static final String HYPHEN = "-";
     private static final String COMMA = ",";
@@ -148,14 +151,13 @@ public final class LandDef{
 
         if(seq.length() <= 0 ) return result;
         String str = seq.toString();
-        str = str.replaceAll("\\p{Blank}", "");
+        str = str.replaceAll(REG_POSIXBLANK, "");
 
         String[] tokens = str.split(COMMA);
         assert tokens.length >= 1;
         for(String token : tokens){
             if(token.length() <= 0) continue;
-            if(   token.charAt(0) == HYPHEN_CH
-               || token.endsWith(HYPHEN) ){
+            if(token.charAt(0) == HYPHEN_CH || token.endsWith(HYPHEN)){
                 throw new IllegalArgumentException(token);
             }
             parseIntPair(result, token);
@@ -222,9 +224,9 @@ public final class LandDef{
         String formalName = DomUtils.attrRequired(elem, "formalName");
         String landPrefix = DomUtils.attrRequired(elem, "landPrefix");
 
-        if(   landName  .length() <= 0
-           || landId    .length() <= 0
-           || formalName.length() <= 0 ){
+        if(    landName  .length() <= 0
+            || landId    .length() <= 0
+            || formalName.length() <= 0 ){
             throw new SAXException("no identification info");
         }
 
@@ -250,8 +252,8 @@ public final class LandDef{
         int minMembers = Integer.parseInt(minStr);
         int maxMembers = Integer.parseInt(maxStr);
 
-        if(   minMembers <= 0
-           || minMembers > maxMembers ){
+        if(    minMembers <= 0
+            || minMembers > maxMembers ){
             throw new SAXException("invalid member limitation");
         }
 
@@ -274,8 +276,8 @@ public final class LandDef{
         if(webURI == null || cgiURI == null){
             throw new SAXException("no URI");
         }
-        if(   ! webURI.isAbsolute()
-           || ! cgiURI.isAbsolute() ){
+        if(    ! webURI.isAbsolute()
+            || ! cgiURI.isAbsolute() ){
             throw new SAXException("relative URI");
         }
 

@@ -28,7 +28,7 @@ public enum Team{
      * @param teamName 陣営名
      * @param xmlName XML用シンボル
      */
-    private Team(String teamName, String xmlName){
+    Team(String teamName, String xmlName){
         this.teamName = teamName.intern();
         this.xmlName = xmlName.intern();
         return;

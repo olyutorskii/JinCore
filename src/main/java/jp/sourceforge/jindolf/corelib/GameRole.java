@@ -68,11 +68,11 @@ public enum GameRole{
      * @param team 陣営
      * @param order 順位
      */
-    private GameRole(String roleName,
-                      char shortName,
-                      String xmlName,
-                      Team team,
-                      int order ){
+    GameRole(String roleName,
+              char shortName,
+              String xmlName,
+              Team team,
+              int order ){
         this.roleName = roleName.intern();
         this.shortName = shortName;
         this.xmlName = xmlName.intern();

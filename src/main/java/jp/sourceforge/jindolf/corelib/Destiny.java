@@ -30,7 +30,7 @@ public enum Destiny{
      * コンストラクタ。
      * @param message 死因メッセージ
      */
-    private Destiny(String message){
+    Destiny(String message){
         this.message = message.intern();
         return;
     }

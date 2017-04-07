@@ -26,12 +26,12 @@
 -->Javaパッケージです。<!--
  --></description>
 
-    <url>https://osdn.jp/projects/jindolf/devel/</url>
+    <url>https://ja.osdn.net/projects/jindolf/devel/</url>
     <inceptionYear>2009</inceptionYear>
 
     <organization>
         <name>Jindolf Partners</name>
-        <url>https://osdn.jp/projects/jindolf/devel/</url>
+        <url>https://ja.osdn.net/projects/jindolf/devel/</url>
     </organization>
 
     <licenses>
@@ -47,7 +47,7 @@
             <id>olyutorskii</id>
             <url>https://sites.google.com/site/olyutorskiipit/</url>
             <organization>Jindolf Partners</organization>
-            <organizationUrl>https://osdn.jp/projects/jindolf/devel/</organizationUrl>
+            <organizationUrl>https://ja.osdn.net/projects/jindolf/devel/</organizationUrl>
             <roles>
                 <role>Project Founder</role>
                 <role>Java Developer</role>
@@ -65,14 +65,14 @@
     <modules/>
 
     <scm>
-        <connection>scm:hg:http://hg.osdn.jp/view/jindolf/JinCore</connection>
-        <developerConnection>scm:hg:ssh://hg.osdn.jp//hgroot/jindolf/JinCore</developerConnection>
-        <url>https://osdn.jp/projects/jindolf/scm/hg/JinCore/</url>
+        <connection>scm:hg:http://hg.osdn.net/view/jindolf/JinCore</connection>
+        <developerConnection>scm:hg:ssh://hg.osdn.net//hgroot/jindolf/JinCore</developerConnection>
+        <url>https://osdn.net/projects/jindolf/scm/hg/JinCore/</url>
     </scm>
 
     <issueManagement>
         <system>OSDN.JP</system>
-        <url>https://osdn.jp/projects/jindolf/ticket/</url>
+        <url>https://osdn.net/projects/jindolf/ticket/</url>
     </issueManagement>
 
     <ciManagement/>
@@ -299,11 +299,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.0.0</version>
                 <configuration>
-                    <archiveBaseDirectory>.</archiveBaseDirectory>
                     <descriptors>
-                        <descriptor>src/main/assembly/descriptor.xml</descriptor>
+                        <descriptor>src/assembly/src.xml</descriptor>
                     </descriptors>
                 </configuration>
             </plugin>

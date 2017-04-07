@@ -32,7 +32,9 @@
 
     <rule ref="rulesets/java/codesize.xml" />
 
-    <rule ref="rulesets/java/comments.xml" />
+    <rule ref="rulesets/java/comments.xml">
+        <exclude name="CommentDefaultAccessModifier" />
+    </rule>
     <rule ref="rulesets/java/comments.xml/CommentRequired" >
         <properties>
             <property name="fieldCommentRequirement" value="Ignored"/>
@@ -45,6 +47,7 @@
     </rule>
 
     <rule ref="rulesets/java/controversial.xml">
+        <exclude name="DefaultPackage" />
         <exclude name="OnlyOneReturn" />
         <exclude name="DataflowAnomalyAnalysis" />
         <exclude name="AvoidLiteralsInIfCondition" />
@@ -91,7 +94,9 @@
 
     <rule ref="rulesets/java/strictexception.xml" />
 
-    <rule ref="rulesets/java/strings.xml" />
+    <rule ref="rulesets/java/strings.xml">
+        <exclude name="ConsecutiveAppendsShouldReuse" />
+    </rule>
 
     <rule ref="rulesets/java/sunsecure.xml" />
 

@@ -13,7 +13,7 @@
     xsi:schemaLocation="http://jindolf.sourceforge.jp/xml/ns/401
                         http://jindolf.sourceforge.jp/xml/xsd/coreXML-090829.xsd"
     xml:lang="ja-JP"
-    update="2011-10-18T03:00:00+09:00"
+    update="2017-04-08T01:42:00+09:00"
 >
 
 <!--
@@ -197,8 +197,8 @@
         landState="historical"
         minMembers="11"
         maxMembers="16"
-        webURI="http://ninjin002.x0.com/wolff/"
-        cgiURI="http://ninjin002.x0.com/wolff/index.rb"
+        webURI="http://ninjinix.x0.com/wolff/"
+        cgiURI="http://ninjinix.x0.com/wolff/index.rb"
         tombFaceIconURI="./plugin_wolf/img/face99.jpg"
         tombBodyIconURI="./plugin_wolf/img/body99.jpg"
         faceIconURITemplate="./plugin_wolf/img/face{0,number,#00}.jpg"

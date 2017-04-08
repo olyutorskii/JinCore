@@ -380,7 +380,7 @@ public class LandDefTest {
 
         assertEquals("http://ninjinix.x0.com/wolf/",
                      selectLand("wolf").getWebURI().toString());
-        assertEquals("http://ninjin002.x0.com/wolff/",
+        assertEquals("http://ninjinix.x0.com/wolff/",
                      selectLand("wolff").getWebURI().toString());
         assertEquals("http://www.wolfg.x0.com/",
                      selectLand("wolfg").getWebURI().toString());
@@ -397,7 +397,7 @@ public class LandDefTest {
 
         assertEquals("http://ninjinix.x0.com/wolf/index.rb",
                      selectLand("wolf").getCgiURI().toString());
-        assertEquals("http://ninjin002.x0.com/wolff/index.rb",
+        assertEquals("http://ninjinix.x0.com/wolff/index.rb",
                      selectLand("wolff").getCgiURI().toString());
         assertEquals("http://www.wolfg.x0.com/index.rb",
                      selectLand("wolfg").getCgiURI().toString());

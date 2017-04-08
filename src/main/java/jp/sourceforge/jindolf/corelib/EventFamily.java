@@ -26,7 +26,7 @@ public enum EventFamily{
      * コンストラクタ。
      * @param divClass divタグclass名
      */
-    private EventFamily(String divClass){
+    EventFamily(String divClass){
         this.divClass = divClass;
         return;
     }

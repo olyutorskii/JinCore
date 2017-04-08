@@ -26,7 +26,7 @@ public enum LandState{
      * コンストラクタ。
      * @param xmlName XML用シンボル
      */
-    private LandState(String xmlName){
+    LandState(String xmlName){
         this.xmlName = xmlName.intern();
         return;
     }

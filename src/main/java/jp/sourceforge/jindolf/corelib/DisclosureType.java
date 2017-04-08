@@ -26,7 +26,7 @@ public enum DisclosureType{
      * コンストラクタ。
      * @param xmlName XML用シンボル
      */
-    private DisclosureType(String xmlName){
+    DisclosureType(String xmlName){
         this.xmlName = xmlName.intern();
         return;
     }

@@ -61,7 +61,7 @@
  *
  * @see <a href="http://jindolf.osdn.jp/">
  * Jindolfポータルサイト</a>
- * @see <a href="https://osdn.jp/projects/jindolf/devel/">
+ * @see <a href="https://ja.osdn.net/projects/jindolf/devel/">
  * Jindolf開発プロジェクト</a>
  */
 

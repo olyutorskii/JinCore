@@ -134,7 +134,7 @@ public enum VillageTag{
      * 隠しコンストラクタ。
      * @param tagName 村名
      */
-    private VillageTag(String tagName){
+    VillageTag(String tagName){
         this.tagName = tagName.intern();
         return;
     }

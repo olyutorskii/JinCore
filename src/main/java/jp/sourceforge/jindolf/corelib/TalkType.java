@@ -28,7 +28,7 @@ public enum TalkType{
      * コンストラクタ。
      * @param xmlName XML用シンボル
      */
-    private TalkType(String xmlName){
+    TalkType(String xmlName){
         this.xmlName = xmlName.intern();
         return;
     }

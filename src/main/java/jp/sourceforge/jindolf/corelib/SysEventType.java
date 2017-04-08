@@ -80,7 +80,7 @@ public enum SysEventType{
      * コンストラクタ。
      * @param family イベントファミリ
      */
-    private SysEventType(EventFamily family){
+    SysEventType(EventFamily family){
         this.family = family;
         return;
     }

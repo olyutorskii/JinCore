@@ -26,7 +26,7 @@ public enum PeriodType{
      * コンストラクタ。
      * @param xmlName XML用シンボル
      */
-    private PeriodType(String xmlName){
+    PeriodType(String xmlName){
         this.xmlName = xmlName.intern();
         return;
     }

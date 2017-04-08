@@ -31,7 +31,7 @@ public enum VillageState{
      * コンストラクタ。
      * @param xmlName XML用シンボル
      */
-    private VillageState(String xmlName){
+    VillageState(String xmlName){
         this.xmlName = xmlName.intern();
         return;
     }

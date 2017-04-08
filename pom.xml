@@ -16,7 +16,7 @@
     <groupId>jp.sourceforge.jindolf</groupId>
     <artifactId>jincore</artifactId>
 
-    <version>1.206.9-SNAPSHOT</version>
+    <version>1.206.10</version>
 
     <packaging>jar</packaging>
     <name>JinCore</name>
@@ -71,7 +71,7 @@
     </scm>
 
     <issueManagement>
-        <system>OSDN.JP</system>
+        <system>OSDN.NET</system>
         <url>https://ja.osdn.net/projects/jindolf/ticket/</url>
     </issueManagement>
 

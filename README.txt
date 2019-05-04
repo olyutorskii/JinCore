@@ -53,10 +53,10 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 ./pom.xml
     Maven3用プロジェクト構成定義ファイル。
 
-./checkstyle.xml
+./config/checkstyle/checkstyle.xml
     Checkstyle用configファイル。
 
-./pmdrules.xml
+./config/pmd/pmdrules.xml
     PMD用ルール定義ファイル。
 
 ./src/assembly/src.xml

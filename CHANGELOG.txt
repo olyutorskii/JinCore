@@ -4,7 +4,7 @@
 JinCore 変更履歴
 
 
-X.XXX.XX (2019-XX-XX)
+1.206.112 (2019-05-04)
     ・必須環境をJavaSE8に引き上げ。
     ・Mercurial(1.206.11-SNAPSHOT)からGit(1.206.111-SNAPSHOT)へSCMを移行。
 

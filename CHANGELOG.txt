@@ -4,6 +4,10 @@
 JinCore 変更履歴
 
 
+X.XXX.XX (2019-XX-XX)
+    ・必須環境をJavaSE8に引き上げ。
+    ・Mercurial(1.206.11-SNAPSHOT)からGit(1.206.111-SNAPSHOT)へSCMを移行。
+
 1.206.10 (2017-04-08)
     ・F国URL変更に対応。
     ・ja.osdn.net対応。

@@ -17,9 +17,6 @@ Javaパッケージです。
  JinCoreは、Jindolf以外の人狼BBSクライアント製作者向けに、
 Jindolfの機能の一部を提供することを目的に発足した、派生プロジェクトです。
 
-※ このアーカイブにはJindolfの実行バイナリは含まれていません。
-　 Jindolfを動かしたい方は、jindolfで始まり拡張子が*.jarであるファイルを
-　 別途入手してください。
 ※ 人狼BBSのURLは [ http://ninjinix.com/ ] まで
 ※ 人狼BBSを主催するninjin氏は、JinCoreの製作に一切関与していません。
 　 JinCoreに関する問い合わせををninjin氏へ投げかけないように！約束だよ！
@@ -27,12 +24,12 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 
 === ソースコードに関して ===
 
- - JinCoreはJava言語(JavaSE7)で記述されたプログラムです。
+ - JinCoreはJava言語(JavaSE8)で記述されたプログラムです。
  - JinCoreは他のプログラムに組み込まれて利用されるライブラリです。
    JARファイルによるライブラリ提供や、他プロジェクトのソースツリーへの
    マージの形で利用される事を想定しています。
- - JinCoreはJRE1.7に準拠したJava実行環境で利用できるように作られています。
-   原則として、JRE1.7に準拠した実行系であれば、プラットフォームを選びません。
+ - JinCoreはJavaSE8に準拠したJava実行環境で利用できるように作られています。
+   原則として、JavaSE8に準拠した実行系であれば、プラットフォームを選びません。
 
 
 === 開発プロジェクト運営元 ===
@@ -53,16 +50,13 @@ Jindolfの機能の一部を提供することを目的に発足した、派生�
 ./LICENSE.txt
     ライセンスに関して。
 
-./SCM.txt
-    ソースコード管理に関して。
-
 ./pom.xml
     Maven3用プロジェクト構成定義ファイル。
 
-./checkstyle.xml
+./config/checkstyle/checkstyle.xml
     Checkstyle用configファイル。
 
-./pmdrules.xml
+./config/pmd/pmdrules.xml
     PMD用ルール定義ファイル。
 
 ./src/assembly/src.xml

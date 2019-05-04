@@ -92,8 +92,11 @@
         <javadoc.locale>${locale}</javadoc.locale>
         <findbugs.jvmArgs>-Duser.language=en</findbugs.jvmArgs>
 
+        <!-- Walk around: JDK 11 javadoc + Maven -->
+        <detectJavaApiLink>false</detectJavaApiLink>
+
         <surefire-plugin.version>3.0.0-M3</surefire-plugin.version>
-        <jacoco-plugin.version>0.7.9</jacoco-plugin.version>
+        <jacoco-plugin.version>0.8.3</jacoco-plugin.version>
 
         <checkstyle-plugin.version>2.17</checkstyle-plugin.version>
         <checkstyleruntime.version>6.19</checkstyleruntime.version>
@@ -159,7 +162,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0</version>
                 <configuration>
                     <filesets>
                         <fileset>
@@ -210,13 +213,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.1.0</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.8</source>  <!-- for NetBeans IDE -->
                     <target>1.8</target>
@@ -281,7 +284,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.1.1</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -322,13 +325,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
+                <version>3.0.0-M1</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
+                <version>3.0.0-M1</version>
             </plugin>
 
 
@@ -349,7 +352,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.1</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/assembly/src.xml</descriptor>
@@ -453,15 +456,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.1.0</version>
                 <configuration>
                     <author>false</author>
                     <notimestamp>true</notimestamp>
                     <quiet>true</quiet>
                     <show>protected</show>
-                    <locale>${javadoc.locale}</locale>
                     <header>${project.name} ${project.version} API</header>
                     <version>true</version>
+                    <locale>${javadoc.locale}</locale>
+                    <!-- for JDK11 javadoc -->
+                    <additionalJOption>-J-Duser.language=${javadoc.locale}</additionalJOption>
                 </configuration>
                 <reportSets>
                     <reportSet>
@@ -475,7 +480,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.0.0</version>
             </plugin>
 
             <plugin>

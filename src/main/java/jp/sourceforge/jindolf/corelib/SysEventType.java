@@ -38,7 +38,7 @@ public enum SysEventType{
     WINWOLF(EventFamily.ANNOUNCE),
     /** ハムスター勝利。 */
     WINHAMSTER(EventFamily.ANNOUNCE),
-    /** 役職&ログイン名公開。 */
+    /** 役職&amp;ログイン名公開。 */
     PLAYERLIST(EventFamily.ANNOUNCE),
     /** 何らかのシステムトラブル。A国末期で頻発。 */
     PANIC(EventFamily.ANNOUNCE),

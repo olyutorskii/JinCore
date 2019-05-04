@@ -104,7 +104,8 @@
         <checkstyle.suppressions.location>${project.basedir}/config/checkstyle/checkstyle-suppressions.xml</checkstyle.suppressions.location>
         <checkstyle.enable.rss>false</checkstyle.enable.rss>
 
-        <pmd-plugin.version>3.7</pmd-plugin.version>
+        <pmd-plugin.version>3.12.0</pmd-plugin.version>
+        <pmd.analysisCache>true</pmd.analysisCache>
 
         <spotbugs-plugin.version>3.1.11</spotbugs-plugin.version>
         <spotbugs.effort>Max</spotbugs.effort>
@@ -364,6 +365,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${checkstyle-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${pmd-plugin.version}</version>
+                <configuration>
+                    <rulesets>
+                        <ruleset>${project.basedir}/config/pmd/pmdrules.xml</ruleset>
+                    </rulesets>
+                </configuration>
             </plugin>
 
             <plugin>

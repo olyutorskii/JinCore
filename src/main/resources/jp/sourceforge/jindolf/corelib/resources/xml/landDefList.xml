@@ -217,7 +217,7 @@
         landId="wolfg"
         formalName="人狼BBS:G"
         landPrefix="G"
-        landState="active"
+        landState="historical"
         minMembers="10"
         maxMembers="16"
         webURI="http://www.wolfg.x0.com/"
@@ -230,6 +230,7 @@
         encoding="UTF-8"
         timeZone="GMT+09:00"
         startDate="2010-03-07T13:53:27+09:00"
+        endDate="2020-02-10T01:45:01+09:00"
         description="人狼BBS G国"
         contactInfo="http://ninjinix.com/"
     />

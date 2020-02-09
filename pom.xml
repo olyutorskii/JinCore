@@ -404,7 +404,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <configuration>
                     <rulesets>
-                        <ruleset>${project.basedir}/config/pmd/pmdrules.xml</ruleset>
+                        <ruleset>config/pmd/pmdrules.xml</ruleset>
                     </rulesets>
                 </configuration>
             </plugin>

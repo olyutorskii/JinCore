@@ -233,10 +233,7 @@ public class LandDefTest {
         List<LandDef> result;
         try{
             result = LandDef.buildLandDefList(this.builder);
-        }catch(SAXException e){
-            fail();
-            return;
-        }catch(IOException e){
+        }catch(SAXException | IOException e){
             fail();
             return;
         }
@@ -254,10 +251,7 @@ public class LandDefTest {
         List<LandDef> result;
         try{
             result = LandDef.buildLandDefList(this.builder);
-        }catch(SAXException e){
-            fail();
-            return null;
-        }catch(IOException e){
+        }catch(SAXException | IOException e){
             fail();
             return null;
         }
@@ -338,7 +332,7 @@ public class LandDefTest {
 
         assertEquals(LandState.HISTORICAL, selectLand("wolf0").getLandState());
         assertEquals(LandState.HISTORICAL, selectLand("wolff").getLandState());
-        assertEquals(LandState.ACTIVE,     selectLand("wolfg").getLandState());
+        assertEquals(LandState.HISTORICAL, selectLand("wolfg").getLandState());
 
         return;
     }
@@ -575,7 +569,9 @@ public class LandDefTest {
         assertEquals(cal.getTimeInMillis(),
                      selectLand("wolf").getEndDateTime());
 
-        assertTrue(0 > selectLand("wolfg").getEndDateTime());
+        cal.set(2020, 2-1, 10, 1, 45, 1);
+        assertEquals(cal.getTimeInMillis(),
+                     selectLand("wolfg").getEndDateTime());
 
         return;
     }

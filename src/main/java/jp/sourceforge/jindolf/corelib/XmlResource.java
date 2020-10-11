@@ -107,9 +107,7 @@ public final class XmlResource{
             I_URI_COREXML   = loadInner(I_RES_COREXML);
             I_URI_LANDDEF   = loadInner(I_RES_LANDDEF);
             I_URI_AVATARDEF = loadInner(I_RES_AVATARDEF);
-        }catch(FileNotFoundException e){
-            throw new ExceptionInInitializerError(e);
-        }catch(URISyntaxException e){
+        }catch(FileNotFoundException | URISyntaxException e){
             throw new ExceptionInInitializerError(e);
         }
 

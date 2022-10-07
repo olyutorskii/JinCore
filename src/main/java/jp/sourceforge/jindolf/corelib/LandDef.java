@@ -197,17 +197,8 @@ public final class LandDef{
      * @return Locale
      */
     public static Locale buildLocale(CharSequence attrVal){
-        String lang    = "";
-        String country = "";
-        String variant = "";
-
-        String[] lcstr = attrVal.toString().split(HYPHEN, 3);
-        if(lcstr.length >= 1) lang    = lcstr[0];
-        if(lcstr.length >= 2) country = lcstr[1];
-        if(lcstr.length >= 3) variant = lcstr[2];
-
-        Locale locale = new Locale(lang, country, variant);
-
+        String tag = attrVal.toString();
+        Locale locale = Locale.forLanguageTag(tag);
         return locale;
     }
 

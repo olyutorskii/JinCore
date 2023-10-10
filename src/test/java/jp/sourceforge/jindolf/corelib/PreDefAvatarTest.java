@@ -10,14 +10,13 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  */
@@ -28,15 +27,7 @@ public class PreDefAvatarTest {
     public PreDefAvatarTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception{
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception{
-    }
-
-    @Before
+    @BeforeEach
     public void setUp() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try{
@@ -45,10 +36,6 @@ public class PreDefAvatarTest {
             fail();
         }
         return;
-    }
-
-    @After
-    public void tearDown() {
     }
 
     /**

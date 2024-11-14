@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Update Jacoco & SpotBugs for JDK23
+- Update Maven plugins
+- Update PMD & Checkstyle
+- Update GitHub workflows
 
-## [1.207.8] - 2022-10-10
+
+## [1.207.8] - 2023-10-10
 
 ### Changed
 - ホスティングをOSDNからGitHubへ移行。

@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Update Jacoco & SpotBugs for JDK23
+
 
 ## [1.207.8] - 2022-10-10
 

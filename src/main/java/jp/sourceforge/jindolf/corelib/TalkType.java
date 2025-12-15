@@ -26,6 +26,7 @@ public enum TalkType{
 
     /**
      * コンストラクタ。
+     *
      * @param xmlName XML用シンボル
      */
     TalkType(String xmlName){
@@ -35,6 +36,7 @@ public enum TalkType{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){

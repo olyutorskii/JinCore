@@ -24,6 +24,7 @@ public enum LandState{
 
     /**
      * コンストラクタ。
+     *
      * @param xmlName XML用シンボル
      */
     LandState(String xmlName){
@@ -33,6 +34,7 @@ public enum LandState{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){

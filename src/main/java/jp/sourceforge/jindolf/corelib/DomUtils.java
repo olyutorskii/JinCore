@@ -43,6 +43,7 @@ final class DomUtils{
 
     /**
      * DOM要素のリストをXMLリソースからロードする。
+     *
      * @param builder DOMビルダ
      * @param url URL
      * @param childName 要素名
@@ -62,6 +63,7 @@ final class DomUtils{
 
     /**
      * root要素をXMLリソースからロードする。
+     *
      * @param builder DOMビルダ
      * @param url URL
      * @return root要素
@@ -86,6 +88,7 @@ final class DomUtils{
 
     /**
      * root要素から子要素のリストを得る。
+     *
      * @param root root要素
      * @param childName 子要素のタグ名
      * @return 子要素のリスト
@@ -108,6 +111,7 @@ final class DomUtils{
 
     /**
      * XMLタグの必須属性値を得る。
+     *
      * @param elem XML要素
      * @param attrName 属性名
      * @return 属性値
@@ -130,6 +134,7 @@ final class DomUtils{
 
     /**
      * XMLタグの属性値を得る。
+     *
      * @param elem XML要素
      * @param attrName 属性名
      * @return 属性値。なければnull
@@ -145,6 +150,7 @@ final class DomUtils{
 
     /**
      * XML属性値からURIを展開する。
+     *
      * @param elem XML国定義要素
      * @param attrName 属性名
      * @return URI

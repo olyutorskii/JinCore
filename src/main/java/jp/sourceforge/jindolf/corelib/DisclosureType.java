@@ -24,6 +24,7 @@ public enum DisclosureType{
 
     /**
      * コンストラクタ。
+     *
      * @param xmlName XML用シンボル
      */
     DisclosureType(String xmlName){
@@ -33,6 +34,7 @@ public enum DisclosureType{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){

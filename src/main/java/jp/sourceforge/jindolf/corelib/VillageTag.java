@@ -132,6 +132,7 @@ public enum VillageTag{
 
     /**
      * 隠しコンストラクタ。
+     *
      * @param tagName 村名
      */
     VillageTag(String tagName){
@@ -142,6 +143,7 @@ public enum VillageTag{
 
     /**
      * 村名からEnumメンバを得る。
+     *
      * @param tagName 村名
      * @return Enumメンバ
      */
@@ -152,6 +154,7 @@ public enum VillageTag{
 
     /**
      * 与えられたマッチャ先頭がいずれかの村名に一致しないか調べる。
+     *
      * @param matcher マッチャ
      * @return 一致した村名。どれにも一致しなければnull。
      */
@@ -173,6 +176,7 @@ public enum VillageTag{
 
     /**
      * 村名を得る。
+     *
      * @return 村名
      */
     public String getTagName(){
@@ -182,6 +186,7 @@ public enum VillageTag{
     /**
      * 次のEnumメンバを得る。
      * 先頭と末尾は循環する。
+     *
      * @return 次のEnumメンバ
      */
     public VillageTag getNextVillageTag(){
@@ -194,6 +199,7 @@ public enum VillageTag{
     /**
      * 前のEnumメンバを得る。
      * 先頭と末尾は循環する。
+     *
      * @return 前のEnumメンバ
      */
     public VillageTag getPrevVillageTag(){

@@ -78,6 +78,7 @@ public enum SysEventType{
 
     /**
      * コンストラクタ。
+     *
      * @param family イベントファミリ
      */
     SysEventType(EventFamily family){
@@ -89,6 +90,7 @@ public enum SysEventType{
     /**
      * イベントファミリを得る。
      * ASSAULTとUNKNOWNに関してはnullを返す。
+     *
      * @return イベントファミリ
      */
     public EventFamily getEventFamily(){

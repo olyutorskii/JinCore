@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update Checkstyle
 - Update Maven plugins
 - Update GitHub workflows
+- JUnit5からJUnit6へ移行
 
 
 ## [1.207.8] - 2023-10-10

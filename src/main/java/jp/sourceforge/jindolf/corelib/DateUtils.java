@@ -21,7 +21,7 @@ import java.time.format.DateTimeParseException;
 /**
  * 日付ユーティリティ。
  *
- * ISO8601による時刻表記を解析する。
+ * <p>ISO8601による時刻表記を解析する。
  */
 final class DateUtils{
 
@@ -37,7 +37,7 @@ final class DateUtils{
     /**
      * ISO8601形式の日付をエポック秒msに変換する。
      * JRE1.6 の {@link javax.xml.bind.DatatypeConverter} 代替品
-     * 
+     *
      * @param date ISO8601形式の日付文字列
      * @return エポック秒ms
      * @throws IllegalArgumentException 形式が変な場合。
@@ -52,7 +52,7 @@ final class DateUtils{
         }
 
         Instant ins = zdt.toInstant();
-        
+
         long result = ins.toEpochMilli();
         return result;
     }

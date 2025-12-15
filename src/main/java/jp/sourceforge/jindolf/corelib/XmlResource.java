@@ -139,6 +139,7 @@ public final class XmlResource{
 
     /**
      * 内部リソースのURIを得る。
+     *
      * @param res リソース名
      * @return URI
      * @throws FileNotFoundException リソースが見つからない。
@@ -155,6 +156,7 @@ public final class XmlResource{
 
     /**
      * 外部リソースのURIを得る。
+     *
      * @param http 外部リソース名
      * @return URI
      */

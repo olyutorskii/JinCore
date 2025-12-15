@@ -30,6 +30,7 @@ public final class PreDefAvatar{
 
     /**
      * コンストラクタ。
+     *
      * @param avatarId Avatar識別子
      * @param fullName フルネーム
      * @param jobTitle 職業名
@@ -68,6 +69,7 @@ public final class PreDefAvatar{
 
     /**
      * プリセット済みAvatar一覧リストを生成する。
+     *
      * @param builder DOMビルダ
      * @return プリセット済みAvatar一覧リスト
      * @throws IOException IOエラー
@@ -94,6 +96,7 @@ public final class PreDefAvatar{
 
     /**
      * 個々のプリセットAvatar定義をオブジェクトに変換する。
+     *
      * @param avatarDef プリセットAvatar定義要素
      * @return プリセットAvatar定義オブジェクト
      * @throws SAXException パースエラー
@@ -126,6 +129,7 @@ public final class PreDefAvatar{
 
     /**
      * Avatar識別子を返す。
+     *
      * @return Avatar識別子
      */
     public String getAvatarId(){
@@ -134,6 +138,7 @@ public final class PreDefAvatar{
 
     /**
      * フルネームを返す。
+     *
      * @return フルネーム
      */
     public String getFullName(){
@@ -142,6 +147,7 @@ public final class PreDefAvatar{
 
     /**
      * 職業名を返す。
+     *
      * @return 職業名
      */
     public String getJobTitle(){
@@ -150,6 +156,7 @@ public final class PreDefAvatar{
 
     /**
      * 省略名を返す。
+     *
      * @return 省略名
      */
     public String getShortName(){
@@ -158,6 +165,7 @@ public final class PreDefAvatar{
 
     /**
      * 通し番号を返す。
+     *
      * @return 通し番号
      */
     public int getSerialNo(){

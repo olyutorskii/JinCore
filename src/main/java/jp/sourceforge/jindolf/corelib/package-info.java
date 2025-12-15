@@ -60,7 +60,7 @@
  * <hr>
  *
  * @see <a href="https://github.com/olyutorskii/Jindolf">
- * Jindolf開発プロジェクト</a>
+ *     Jindolf開発プロジェクト</a>
  */
 
 package jp.sourceforge.jindolf.corelib;

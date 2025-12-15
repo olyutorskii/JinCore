@@ -24,6 +24,7 @@ public enum PeriodType{
 
     /**
      * コンストラクタ。
+     *
      * @param xmlName XML用シンボル
      */
     PeriodType(String xmlName){
@@ -33,6 +34,7 @@ public enum PeriodType{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){

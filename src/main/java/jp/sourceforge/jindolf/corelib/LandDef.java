@@ -100,6 +100,7 @@ public final class LandDef{
     /**
      * ハイフンで区切られた整数範囲をパースする。
      * 「1-3」なら1,2,3を結果に格納する。
+     *
      * @param intSet 格納先Set
      * @param seq パース対象
      * @throws IllegalArgumentException 形式が変
@@ -141,6 +142,7 @@ public final class LandDef{
     /**
      * コンマとハイフンで区切られた整数の羅列をパースする。
      * 「10,23-25」なら10,23,24,25を結果に返す。
+     *
      * @param seq パース対象文字列
      * @return ソートされたIntegerのList
      * @throws IllegalArgumentException 形式が変。
@@ -168,6 +170,7 @@ public final class LandDef{
 
     /**
      * 国設定のListを返す。
+     *
      * @param builder DOMビルダ
      * @return List 国設定リスト
      * @throws IOException IOエラー
@@ -193,6 +196,7 @@ public final class LandDef{
 
     /**
      * ハイフンをデリミタに持つロケール指定文字列からLocaleを生成する。
+     *
      * @param attrVal ロケール指定文字列
      * @return Locale
      */
@@ -204,6 +208,7 @@ public final class LandDef{
 
     /**
      * XML属性を使って国定義の識別子情報を埋める。
+     *
      * @param result 国定義
      * @param elem 個別のXML国定義要素
      * @throws SAXException XML属性の記述に関する異常系
@@ -231,6 +236,7 @@ public final class LandDef{
 
     /**
      * XML属性を使って国定義の定員情報を埋める。
+     *
      * @param result 国定義
      * @param elem 個別のXML国定義要素
      * @throws SAXException XML属性の記述に関する異常系
@@ -256,6 +262,7 @@ public final class LandDef{
 
     /**
      * XML属性を使って国定義のURI情報を埋める。
+     *
      * @param result 国定義
      * @param elem 個別のXML国定義要素
      * @throws SAXException XML属性の記述に関する異常系
@@ -287,6 +294,7 @@ public final class LandDef{
 
     /**
      * XML属性を使って国定義のURIテンプレート情報を埋める。
+     *
      * @param result 国定義
      * @param elem 個別のXML国定義要素
      * @throws SAXException XML属性の記述に関する異常系
@@ -310,6 +318,7 @@ public final class LandDef{
 
     /**
      * XML属性を使って国定義の国際化情報を埋める。
+     *
      * @param result 国定義
      * @param elem 個別のXML国定義要素
      * @throws SAXException XML属性の記述に関する異常系
@@ -333,6 +342,7 @@ public final class LandDef{
 
     /**
      * XML属性を使って国定義の日付情報を埋める。
+     *
      * @param result 国定義
      * @param elem 個別のXML国定義要素
      * @throws SAXException XML属性の記述に関する異常系
@@ -369,6 +379,7 @@ public final class LandDef{
 
     /**
      * XML属性を使って国定義の各種ステータス情報を埋める。
+     *
      * @param result 国定義
      * @param elem 個別のXML国定義要素
      * @throws SAXException XML属性の記述に関する異常系
@@ -402,6 +413,7 @@ public final class LandDef{
 
     /**
      * 個々の国設定をオブジェクトに変換する。
+     *
      * @param elem 国設定要素
      * @return 国設定オブジェクト
      * @throws SAXException パースエラー
@@ -424,6 +436,7 @@ public final class LandDef{
 
     /**
      * 国名を得る。
+     *
      * @return 国名
      */
     public String getLandName(){
@@ -432,6 +445,7 @@ public final class LandDef{
 
     /**
      * 国識別子を得る。
+     *
      * @return 識別子
      */
     public String getLandId(){
@@ -440,6 +454,7 @@ public final class LandDef{
 
     /**
      * 正式名称を得る。
+     *
      * @return 正式名称
      */
     public String getFormalName(){
@@ -449,6 +464,7 @@ public final class LandDef{
     /**
      * 各村の前置文字。
      * F国なら「F」
+     *
      * @return 前置文字
      */
     public String getLandPrefix(){
@@ -457,6 +473,7 @@ public final class LandDef{
 
     /**
      * 国の状態を得る。
+     *
      * @return 状態
      */
     public LandState getLandState(){
@@ -465,6 +482,7 @@ public final class LandDef{
 
     /**
      * 最小定員を得る。
+     *
      * @return 最小定員
      */
     public int getMinMembers(){
@@ -473,6 +491,7 @@ public final class LandDef{
 
     /**
      * 最大定員を得る。
+     *
      * @return 最大定員
      */
     public int getMaxMembers(){
@@ -481,6 +500,7 @@ public final class LandDef{
 
     /**
      * Webアクセス用の入り口URIを得る。
+     *
      * @return 入り口URI
      */
     public URI getWebURI(){
@@ -489,6 +509,7 @@ public final class LandDef{
 
     /**
      * クエリーを投げるCGIのURIを得る。
+     *
      * @return CGIのURI
      */
     public URI getCgiURI(){
@@ -497,6 +518,7 @@ public final class LandDef{
 
     /**
      * 墓画像のURIを得る。
+     *
      * @return 墓URI
      */
     public URI getTombFaceIconURI(){
@@ -505,6 +527,7 @@ public final class LandDef{
 
     /**
      * 大きな墓画像のURIを得る。
+     *
      * @return 墓URI
      */
     public URI getTombBodyIconURI(){
@@ -513,6 +536,7 @@ public final class LandDef{
 
     /**
      * 顔アイコンURIのテンプレートを得る。
+     *
      * @return Formatter用テンプレート
      */
     public String getFaceURITemplate(){
@@ -521,6 +545,7 @@ public final class LandDef{
 
     /**
      * 全身像アイコンURIのテンプレートを得る。
+     *
      * @return Formatter用テンプレート
      */
     public String getBodyURITemplate(){
@@ -529,6 +554,7 @@ public final class LandDef{
 
     /**
      * この国のロケールを得る。
+     *
      * @return ロケール
      */
     public Locale getLocale(){
@@ -537,6 +563,7 @@ public final class LandDef{
 
     /**
      * この国が使うエンコーディングを得る。
+     *
      * @return エンコーディング
      */
     public Charset getEncoding(){
@@ -545,6 +572,7 @@ public final class LandDef{
 
     /**
      * この国の時刻表記で使うタイムゾーンのコピーを得る。
+     *
      * @return タイムゾーン
      */
     public TimeZone getTimeZone(){
@@ -555,6 +583,7 @@ public final class LandDef{
 
     /**
      * この国の始まった時刻を得る。
+     *
      * @return 始まった時刻(エポックミリ秒)。
      */
     public long getStartDateTime(){
@@ -563,6 +592,7 @@ public final class LandDef{
 
     /**
      * この国が発言を打ち切った時刻を得る。
+     *
      * @return 打ち切った時刻(エポックミリ秒)。まだ打ち切っていない場合は負。
      */
     public long getEndDateTime(){
@@ -571,6 +601,7 @@ public final class LandDef{
 
     /**
      * この国の説明を得る。
+     *
      * @return 説明文字列
      */
     public String getDescription(){
@@ -579,6 +610,7 @@ public final class LandDef{
 
     /**
      * この国の連絡先を得る。
+     *
      * @return 連絡先文字列
      */
     public String getContactInfo(){
@@ -587,6 +619,7 @@ public final class LandDef{
 
     /**
      * 有効な村IDか否か判定する。
+     *
      * @param vid 村ID
      * @return 無効な村ならfalse
      */

@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update Checkstyle
 - Update Maven plugins
 - Update GitHub workflows
-- JUnit5からJUnit6へ移行
+- JUnit5からJUnit6へ移行。
+- 人狼BBSのURLを http: から https: へ変更。
 
 
 ## [1.207.8] - 2023-10-10

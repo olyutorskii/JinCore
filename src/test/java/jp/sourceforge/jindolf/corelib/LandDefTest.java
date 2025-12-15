@@ -359,11 +359,11 @@ public class LandDefTest {
     public void testGetWebURI(){
         System.out.println("getWebURI");
 
-        assertEquals("http://ninjinix.x0.com/wolf/",
+        assertEquals("https://ninjinix.x0.com/wolf/",
                      selectLand("wolf").getWebURI().toString());
-        assertEquals("http://ninjinix.x0.com/wolff/",
+        assertEquals("https://ninjinix.x0.com/wolff/",
                      selectLand("wolff").getWebURI().toString());
-        assertEquals("http://ninjinix.x0.com/wolfg/",
+        assertEquals("https://ninjinix.x0.com/wolfg/",
                      selectLand("wolfg").getWebURI().toString());
 
         return;
@@ -376,11 +376,11 @@ public class LandDefTest {
     public void testGetCgiURI(){
         System.out.println("getCgiURI");
 
-        assertEquals("http://ninjinix.x0.com/wolf/index.rb",
+        assertEquals("https://ninjinix.x0.com/wolf/index.rb",
                      selectLand("wolf").getCgiURI().toString());
-        assertEquals("http://ninjinix.x0.com/wolff/index.rb",
+        assertEquals("https://ninjinix.x0.com/wolff/index.rb",
                      selectLand("wolff").getCgiURI().toString());
-        assertEquals("http://ninjinix.x0.com/wolfg/index.rb",
+        assertEquals("https://ninjinix.x0.com/wolfg/index.rb",
                      selectLand("wolfg").getCgiURI().toString());
 
         return;

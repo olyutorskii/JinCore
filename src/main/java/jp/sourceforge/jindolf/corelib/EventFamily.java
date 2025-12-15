@@ -24,6 +24,7 @@ public enum EventFamily{
 
     /**
      * コンストラクタ。
+     *
      * @param divClass divタグclass名
      */
     EventFamily(String divClass){
@@ -33,6 +34,7 @@ public enum EventFamily{
 
     /**
      * 由来となった&lt;div&gt;要素のclass属性値を得る。
+     *
      * @return class属性値
      */
     public String getDivClass(){
@@ -41,6 +43,7 @@ public enum EventFamily{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){

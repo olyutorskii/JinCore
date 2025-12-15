@@ -25,6 +25,7 @@ public enum Team{
 
     /**
      * コンストラクタ。
+     *
      * @param teamName 陣営名
      * @param xmlName XML用シンボル
      */
@@ -36,6 +37,7 @@ public enum Team{
 
     /**
      * チーム名を取得する。
+     *
      * @return チーム名
      */
     public String getTeamName(){
@@ -44,6 +46,7 @@ public enum Team{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){

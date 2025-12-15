@@ -62,6 +62,7 @@ public enum GameRole{
 
     /**
      * コンストラクタ。
+     *
      * @param roleName 役職名
      * @param shortName 短縮名
      * @param xmlName XML用シンボル
@@ -84,6 +85,7 @@ public enum GameRole{
 
     /**
      * 与えられたマッチャ先頭が定義済みRole名に一致しないか調べる。
+     *
      * @param matcher マッチャ
      * @return 一致した役職。どれにも一致しなければnull。
      */
@@ -105,6 +107,7 @@ public enum GameRole{
     /**
      * 勢力バランス表記用Comparatorを得る。
      * 「村共占霊狩公狂狼」の順で役職を一意に順序づける。
+     *
      * @return Comparator
      */
     public static Comparator<GameRole> getPowerBalanceComparator(){
@@ -114,6 +117,7 @@ public enum GameRole{
 
     /**
      * 役職名を返す。
+     *
      * @return 役職名
      */
     public String getRoleName(){
@@ -122,6 +126,7 @@ public enum GameRole{
 
     /**
      * 一文字に短縮された役職名を得る。
+     *
      * @return 短縮された役職名
      */
     public char getShortName(){
@@ -130,6 +135,7 @@ public enum GameRole{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){
@@ -138,6 +144,7 @@ public enum GameRole{
 
     /**
      * 各役職のチームを得る。
+     *
      * @return チーム
      */
     public Team getTeam(){
@@ -146,6 +153,7 @@ public enum GameRole{
 
     /**
      * 順位を返す。
+     *
      * @return 順位
      */
     private int getOrder(){
@@ -172,6 +180,7 @@ public enum GameRole{
         /**
          * 役職に順序を割り当てる。
          * 村人陣営のほうが狼陣営より小さい値を返す。
+         *
          * @param role 役職
          * @return 順位
          */
@@ -183,6 +192,7 @@ public enum GameRole{
 
         /**
          * {@inheritDoc}
+         *
          * @param role1 {@inheritDoc}
          * @param role2 {@inheritDoc}
          * @return {@inheritDoc}

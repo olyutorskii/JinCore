@@ -28,6 +28,7 @@ public enum Destiny{
 
     /**
      * コンストラクタ。
+     *
      * @param message 死因メッセージ
      */
     Destiny(String message){
@@ -37,6 +38,7 @@ public enum Destiny{
 
     /**
      * 死因メッセージを取得する。
+     *
      * @return 死因文字列
      */
     public String getMessage(){

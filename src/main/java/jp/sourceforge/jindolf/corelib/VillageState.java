@@ -29,6 +29,7 @@ public enum VillageState{
 
     /**
      * コンストラクタ。
+     *
      * @param xmlName XML用シンボル
      */
     VillageState(String xmlName){
@@ -38,6 +39,7 @@ public enum VillageState{
 
     /**
      * XML用シンボルを取得する。
+     *
      * @return XML用シンボル
      */
     public String getXmlName(){

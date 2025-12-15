@@ -54,32 +54,45 @@ public class DateUtilsTest {
         cal.set(2099, 12-1, 31, 23, 59, 59);
         assertEquals(cal.getTimeInMillis(), result);
 
-        seq = "1991-02-03T04:05:06+23";
+        // JDK8 can't support these form
+        /*
+        seq = "1991-02-03T04:05:06+18";
         result = DateUtils.parseISO8601(seq);
-        tz = TimeZone.getTimeZone("GMT+23");
+        tz = TimeZone.getTimeZone("GMT+18");
         cal.setTimeZone(tz);
         cal.set(1991, 2-1, 3, 4, 5, 6);
         assertEquals(cal.getTimeInMillis(), result);
 
-        seq = "1991-02-03T04:05:06-23";
+        seq = "1991-02-03T04:05:06-18";
         result = DateUtils.parseISO8601(seq);
-        tz = TimeZone.getTimeZone("GMT-23");
+        tz = TimeZone.getTimeZone("GMT-18");
+        cal.setTimeZone(tz);
+        cal.set(1991, 2-1, 3, 4, 5, 6);
+        assertEquals(cal.getTimeInMillis(), result);
+        */
+
+        seq = "1991-02-03T04:05:06+17:45";
+        result = DateUtils.parseISO8601(seq);
+        tz = TimeZone.getTimeZone("GMT+1745");
         cal.setTimeZone(tz);
         cal.set(1991, 2-1, 3, 4, 5, 6);
         assertEquals(cal.getTimeInMillis(), result);
 
-        seq = "1991-02-03T04:05:06+2345";
+        /*
+        seq = "1991-02-03T04:05:06+1745";
         result = DateUtils.parseISO8601(seq);
-        tz = TimeZone.getTimeZone("GMT+2345");
+        tz = TimeZone.getTimeZone("GMT+1745");
         cal.setTimeZone(tz);
         cal.set(1991, 2-1, 3, 4, 5, 6);
         assertEquals(cal.getTimeInMillis(), result);
+        */
 
-        seq = "1991-02-03T04:05:06+23:45";
+        // G国 最終日
+        seq = "2020-02-10T01:45:01+09:00";
         result = DateUtils.parseISO8601(seq);
-        tz = TimeZone.getTimeZone("GMT+2345");
+        tz = TimeZone.getTimeZone("GMT+0900");
         cal.setTimeZone(tz);
-        cal.set(1991, 2-1, 3, 4, 5, 6);
+        cal.set(2020, 2-1, 10, 1, 45, 1);
         assertEquals(cal.getTimeInMillis(), result);
 
         seq = "!!!";
@@ -87,6 +100,7 @@ public class DateUtilsTest {
             DateUtils.parseISO8601(seq);
             fail();
         }catch(IllegalArgumentException e){
+            assert true;
             // GOOD
         }
 

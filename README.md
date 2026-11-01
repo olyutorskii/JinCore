@@ -34,7 +34,7 @@ JinCoreに関する問い合わせををninjin氏へ投げかけないように�
 
 ## ビルド方法 ##
 
-* JinCoreはビルドに際して [Maven 3.3.9+](https://maven.apache.org/)
+* JinCoreはビルドに際して [Maven 3.8.9+](https://maven.apache.org/)
 と JDK 1.8+ を要求します。
 
 * JinCore は他のライブラリに依存していません。
